@@ -1,0 +1,295 @@
+html{
+    height: 100%;
+}
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: "微软雅黑","黑体","Arial";
+    background: #eee;
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0px;
+}
+label{
+    color: #000;
+}
+label.error{
+    display: block;
+    color: red!important;
+    font-size: 14px;
+    margin-left: 104px;
+}
+label img{
+    vertical-align: top;
+}
+ul{
+    margin: 0px;
+    padding:0px;
+}
+li{
+    list-style: none;
+}
+.zyPd20{
+    padding: 20px;
+}
+.zyBd2{
+    border: 2px solid #ccc;
+}
+.zyMain{
+    position: relative;
+    height: calc(100% - 60px);
+}
+.zyLeft{
+    position: absolute;
+    left:0px;
+    top:0px;
+    width: 200px;
+}
+.zyRight{
+    border-left:1px solid #ccc;
+    background: #f9f9f9;
+    margin-left: 200px;
+    min-height: 100%;
+}
+
+/************************************form*******************************/
+.zyForm .row{
+
+}
+.zyForm .zyFormLabel{
+    width: 100px;
+    text-align: right;
+    line-height: 40px;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+}
+.zyForm .zyFormSubmitRow{
+    padding-left: 104px;
+}
+.zyForm .btn{
+    position: relative;
+}
+.zyForm .btn input[type='file']{
+    position: absolute;
+    left:0px;
+    top:0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+/*************************************select****************************/
+.zySelect{
+    border: 1px solid #ccc;
+    padding: 3px;
+    background: #eee;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.zySelect .zySShow{
+    width: 50px;
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
+}
+.zySelect .zySName{
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: top;
+}
+.zySelect .zySSelect{
+    width: 100px;
+    display: inline-block;
+    background: none;
+    border: none;
+    outline: none;
+    height: 30px;
+    font-size: 14px;
+    padding: 0px;
+    vertical-align: top;
+}
+.zySelect.zyNoSelect .zySShow,.zySelect.zyNoSelect .zySName{
+    display: none;
+}
+.zySelect.zyNoSelect .zySSelect{
+    width: 198px;
+}
+.zySelect .zySSelect:focus{
+    outline: none;
+}
+/*******************************collaspe*********************/
+.zyCollapseCtrl{
+    margin-bottom: 100px;
+    height: 3px;
+    border: 1px solid #ddd;
+    position: relative;
+    background: #ccc;
+}
+.zyCollapseCtrl .zyCollapse{
+    width:120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border:#ccc solid 1px;
+    position: absolute;
+    bottom:-40px;
+    background: #eee;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: .3em;
+    cursor: pointer;
+}
+.zyCollapseCtrl .zyCollapse .material-icons{
+    line-height: 40px;
+    vertical-align: top;
+}
+
+/***************************************panel**************************/
+.zyPanel{
+    background: #fff;
+}
+.zyPanel .zyPanelTitle{
+    border-bottom: 1px solid #eee;
+    padding: 8px 0px 8px 30px;
+    height: 40px;
+    box-sizing: border-box;
+}
+.zyPanel .zyPanelContent{
+    padding-bottom: 50px;
+}
+
+/********************************************复写datatable****************************/
+.dataTables_wrapper{
+    position: relative;
+}
+table.dataTable{
+    margin-top: 20px;
+    width: 100%;
+    border-bottom: #efefef solid 1px;
+    margin-bottom: 60px;
+}
+table.dataTable thead {
+    background: #eee;
+}
+table.dataTable thead th{
+    color: #333;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    line-height: 30px!important;
+}
+table.dataTable tr{
+    line-height: 25px!important;
+    border-top: #efefef solid 1px;
+}
+table.dataTable tr.odd{
+    background:#fff;
+}
+table.dataTable tr.even{
+    background:#fff;
+}
+table.dataTable td {
+    padding: 5px!important;
+    text-align: center;
+}
+table.dataTable td a{
+    color: #ae4127;
+}
+table.dataTable .thumb{
+    width: 100px;
+    height: auto;
+}
+table.dataTable .zyTdColorEl{
+    display: block;
+    margin: auto;
+    width: 50px;
+    height:20px;
+}
+.dataTables_paginate{
+    position: absolute;
+    bottom:-55px;
+    right:0;
+    height:40px;
+    line-height: 40px;
+}
+.dataTables_info{
+    position: absolute;
+    bottom:-55px;
+    left:0;
+    height:40px;
+    line-height: 40px;
+}
+.paging_full_numbers{
+    height: 40px;
+    line-height: 1;
+}
+.paging_full_numbers a.paginate_button, .paging_full_numbers a.paginate_active{
+    height:40px;
+    line-height: 40px;
+    min-width: 40px;
+    text-align: center;
+    border-radius: 2px;
+    display: inline-block;
+    padding:0 5px;
+    box-sizing: border-box;
+    margin-left: 5px;
+    background:#ae4127;
+}
+.paging_full_numbers a.paginate_active{
+    color: #fff!important;
+}
+.paging_full_numbers a.paginate_active{
+    border: #ae4127 1px solid;
+}
+.paging_full_numbers a.paginate_button{
+    background:#fff;
+    border: #999 1px solid;
+    color: #727171;
+    cursor: pointer;
+}
+.paging_full_numbers a.paginate_button:hover{
+    border: #ae4127 1px solid;
+    color:#ae4127;
+}
+
+/********覆写ztree*************/
+
+
+
+/*********************************覆写material***********************/
+.btn{
+    box-shadow: none !important;
+    background: #ae4127 !important;
+}
+.red{
+    background: #ae4127 !important;
+}
+[type="checkbox"].filled-in:not(:checked)+label:after{
+    border: 1px solid #ccc;
+    background: #eee;
+}
+[type="checkbox"].filled-in:checked+label:after{
+    border: 2px solid #ae4127;
+    background-color: #ae4127;
+}
+input.zyInput{
+    border: 1px solid #ccc;
+    display: inline-block;
+    height: 36px;
+    width: 180px;
+    line-height: 36px;
+    box-sizing: border-box;
+    margin: 0px;
+    vertical-align: top;
+    padding-left: 5px;
+    background: #eee;
+}
+input.zyInput:focus:not([readonly]){
+    border-bottom: 1px solid #ccc;
+    box-shadow: none;
+}
