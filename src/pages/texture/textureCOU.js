@@ -1,4 +1,13 @@
 $(document).ready(function(){
+    var editId;
+    if(location.search){
+        editId=location.search.substr(1);
+        var data=JSON.parse(localStorage.getItem("brand"));
+        data=data[config.findInArray(data,"id",editId)];
+
+        $("#name").val(data.name);
+    }
+
     var formHandler=new ZYFormHandler({
         redirectUrl:"/pages/texture/texture.html",
         keyName:"texture"
@@ -18,7 +27,7 @@ $(document).ready(function(){
             }
         },
         submitHandler:function(form) {
-            formHandler.submitForm(form);
+            formHandler.submitForm(form,editId);
         }
     });
 });

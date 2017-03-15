@@ -1,4 +1,13 @@
 $(document).ready(function(){
+    var editId;
+    if(location.search){
+        editId=location.search.substr(1);
+        var data=JSON.parse(localStorage.getItem("brand"));
+        data=data[config.findInArray(data,"id",editId)];
+
+        $("#name").val(data.name);
+        $("#color").val(data.color);
+    }
     var formHandler=new ZYFormHandler({
         redirectUrl:"/pages/color/color.html",
         keyName:"color"
@@ -24,7 +33,7 @@ $(document).ready(function(){
             }
         },
         submitHandler:function(form) {
-            formHandler.submitForm(form);
+            formHandler.submitForm(form,editId);
         }
     });
 });
