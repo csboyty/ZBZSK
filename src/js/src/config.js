@@ -84,11 +84,8 @@ var config={
             {id:0,value:"red",name:"红色",opt:""}
         ],
         texture:[
-            { id:"00", pId:0, name:"纹理设计", open:true},
-            { id:1, pId:"00", name:"亚光"},
-            { id:2, pId:"00", name:"亮光"},
-            { id:3, pId:1, name:"亚光1"},
-            { id:4, pId:1, name:"亚光2"}
+            { id:0, name:"亚光", opt:""},
+            { id:0, name:"亮光", opt:""}
         ],
         category:[
             { id:"00", pId:0, name:"汽车类别", open:true},
@@ -141,7 +138,11 @@ $(document).ready(function(){
         var parent=$(this).parent(".zySelect"),
             val=$(this).val();
         if(val){
-            parent.find(".zySShow").css("background-color",val);
+            if(parent.hasClass("zySelectHasImg")){
+                parent.find(".zySShow").attr("src",val);
+            }else{
+                parent.find(".zySShow").css("background-color",val);
+            }
             parent.removeClass("zyNoSelect");
         }else{
             parent.addClass("zyNoSelect");

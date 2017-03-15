@@ -5,7 +5,7 @@
     <title>纹理设置</title>
     <link href="../../css/lib/materialicons.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/lib/materialize.min.css">
-    <link rel="stylesheet" href="../../css/lib/zTreeStyle.css">
+    <link rel="stylesheet" href="../../css/lib/jquery.dataTables.css">
     <link rel="stylesheet" href="../../css/src/main.css">
     <link rel="stylesheet" href="../../pages/header/header.css">
     <link rel="stylesheet" href="../../pages/menu/menu.css">
@@ -21,26 +21,17 @@
     </div>
     <div class="zyRight zyPd20">
         <div class="zyPanel zyBd2">
-            <div class="zyPanelTitle">纹理设置</div>
+            <div class="zyPanelTitle">新建/修改 纹理</div>
             <div class="zyPanelContent zyPd20">
-                <a class="waves-effect waves-light btn" href="/pages/texture/textureCOU.html">
-                    <i class="material-icons left">add</i>新建
-                </a>
-
-                <table id="myTable" class="dataTable">
-                    <thead>
-                    <tr>
-                        <th>名称</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!--<tr>
-                        <td>xxxx</td>
-                        <td><a href="1">修改</a>&nbsp;&nbsp;<a href="1">删除</a></td>
-                    </tr>-->
-                    </tbody>
-                </table>
+                <form class="zyForm" id="myForm" action="#">
+                    <div class="row">
+                        <label class="zyFormLabel">名称：</label>
+                        <input class="zyInput" type="text" name="name">
+                    </div>
+                    <div class="row zyFormSubmitRow">
+                        <input type="submit" class="btn" value="确定">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -50,14 +41,16 @@
 
 <!-- Compiled and minified JavaScript -->
 <script>
-    var pageName="texture";
+    var pageName="brand";
 </script>
 <script src="../../js/lib/jquery-2.0.3.min.js"></script>
 <script src="../../js/lib/materialize.min.js"></script>
 <script src="../../js/lib/jquery.dataTables.min.js"></script>
+<script src="../../js/lib/jquery.validate.min.js"></script>
 <script src="../../js/src/config.js"></script>
-<script src="../../js/src/ZYTableHandler.js"></script>
-<script src="texture.js"></script>
+<script src="../../js/src/ZYFormHandler.js"></script>
+<script src="textureCOU.js"></script>
+
 </body>
 </html>
 

@@ -1,0 +1,125 @@
+<form class="zyForm">
+    <div class="row">
+        <label class="zyFormLabel zyRequired">类别:</label>
+
+        <div class="zyFormAllInlineCtrl">
+
+            <input class="with-gap" name="type" type="radio" id="type1"  />
+            <label for="type1">上市产品</label>
+
+            <input  class="with-gap" name="type" type="radio" id="type2"  />
+            <label style="margin-left: 50px" for="type2">概念产品</label>
+        </div>
+    </div>
+    <div class="row">
+        <label class="zyFormLabel zyRequired">上市日期:</label>
+        <select class="zyInput">
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">20021</option>
+        </select>
+    </div>
+    <div class="row">
+        <label class="zyFormLabel zyRequired">品牌:</label>
+        <div class="zyFormAllInlineCtrl row">
+            <div class="col">
+                <div class="zySelect zySelectHasImg zyNoSelect">
+                    <img class="zySShow">
+                    <select class="zySSelect">
+                        <option value="">品牌</option>
+                        <option value="/images/brand.png">三一</option>
+                        <option value="/images/brand.png">中联</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <label class="zyFormLabel zyRequired">图像：</label>
+        <font class="zyFormHelp">（上传两张不同角度的图像）</font>
+        <br>
+        <div class="zyFormChildCtrl">
+            <label class="zyFormLabel zyRequired zyFormLabelHasSub">产品图像<br>&nbsp;&nbsp;&nbsp;&nbsp;(svg)</label>
+            <div class="zyImageUpload">
+                <img src="/images/upload.png">
+                <input type="file" >
+            </div>
+            <label style="margin-left: 40px" class="zyFormLabel zyFormLabelHasSub">特征线图像<br>&nbsp;&nbsp;&nbsp;&nbsp;(svg)</label>
+            <div class="zyImageUpload">
+                <img src="/images/upload.png">
+                <input type="file" >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="zyFormLabel zyRequired">颜色:</label>
+
+        <div class="zyFormAllInlineCtrl row">
+
+            <div class="col">
+                <div class="zySelect zyNoSelect">
+                    <span class="zySShow"></span>
+                    <span class="zySName">主色:</span>
+                    <select class="zySSelect">
+                        <option value="">主色</option>
+                        <option value="red">red</option>
+                        <option value="blue">blue</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="zySelect zyNoSelect">
+                    <span class="zySShow"></span>
+                    <span class="zySName">辅色1:</span>
+                    <select class="zySSelect">
+                        <option value="">辅色1</option>
+                        <option value="red">red</option>
+                        <option value="blue">blue</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="zySelect zyNoSelect">
+                    <span class="zySShow"></span>
+                    <span class="zySName">辅色2:</span>
+                    <select class="zySSelect">
+                        <option value="">辅色2</option>
+                        <option value="red">red</option>
+                        <option value="blue">blue</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <label class="zyFormLabel zyRequired">模型：</label>
+            <div class="btn">
+                <span>上传FBX</span>
+                <input type="file" id="uploadFile">
+            </div>
+        </div>
+
+    </div>
+</form>
