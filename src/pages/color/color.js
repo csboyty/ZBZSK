@@ -24,7 +24,7 @@ $(document).ready(function() {
                     { "mDataProp": "name"},
                     { "mDataProp": "opt",
                         "fnRender":function(oObj){
-                            return  '<a href="'+oObj.aData.id+'">编辑</a>&nbsp;&nbsp;'+
+                            return  '<a href="/pages/color/colorCOU?'+oObj.aData.id+'">编辑</a>&nbsp;&nbsp;'+
                                 '<a href="'+oObj.aData.id+'" class="remove">删除</a>';
                         }
                     }
