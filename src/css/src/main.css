@@ -39,6 +39,9 @@ li{
 .zyBd2{
     border: 2px solid #ccc;
 }
+.zyHasLeftBorder{
+    border-left:1px solid #ccc;
+}
 .zyMain{
     position: relative;
     height: calc(100% - 60px);
@@ -49,14 +52,31 @@ li{
     top:0px;
     width: 200px;
 }
-.zyRight{
-    border-left:1px solid #ccc;
+.zyRight {
+    border-left: 1px solid #ccc;
     background: #f9f9f9;
     margin-left: 200px;
     min-height: 100%;
 }
-
+.zyColorItem{
+    display: inline-block;
+}
+.zyColorItem .zyColorShow{
+    height: 40px;
+    display: inline-block;
+    width: 60px;
+    vertical-align: top;
+}
+.zyColorItem .zyColorName{
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+}
 /************************************form*******************************/
+.zyForm{
+    padding: 20px 30px!important;
+}
 .zyForm .row{
 
 }
@@ -69,6 +89,10 @@ li{
     vertical-align: top;
     position: relative;
     margin-right: 20px;
+}
+.zyForm .zyTARLabel{
+    width: 80px;
+    text-align: right;
 }
 .zyForm .zyFormLabel.zyRequired{
 
@@ -144,6 +168,7 @@ li{
     padding: 3px;
     background: #eee;
     line-height: 30px;
+    display: inline-block;
 }
 .zySelect .zySShow{
     width: 50px;
@@ -213,6 +238,9 @@ li{
     height: 40px;
     box-sizing: border-box;
 }
+.zyPanel .zyPanelTitle .btn{
+    margin: 0px 10px;
+}
 .zyPanel .zyPanelContent{
     padding-bottom: 50px;
 }
@@ -257,12 +285,7 @@ table.dataTable td a{
 table.dataTable .thumb{
     width: 100px;
     height: auto;
-}
-table.dataTable .zyTdColorEl{
-    display: block;
-    margin: auto;
-    width: 50px;
-    height:20px;
+    vertical-align: middle;
 }
 .dataTables_paginate{
     position: absolute;
@@ -317,8 +340,8 @@ table.dataTable .zyTdColorEl{
 
 /*********************************覆写material***********************/
 .btn{
-    box-shadow: none !important;
-    background: #ae4127 !important;
+    box-shadow: none ;
+    background-color: #ae4127 ;
 }
 .red{
     background: #ae4127 !important;
@@ -347,6 +370,23 @@ input.zyInput:focus:not([readonly]){
     border-bottom: 1px solid #ccc;
     box-shadow: none;
 }
-.zyTabPanel{
-    padding: 20px 50px 20px 50px;
+textarea.zyTextarea{
+    width: 100%;
+    background: #eee;
+    height: 150px;
+    border: 1px solid #ccc;
+}
+.modal{
+    border-radius: 0px;
+}
+.modal .modal-header{
+    text-align: center;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    background: #ae4127;
+}
+.modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat{
+    float: none;
 }

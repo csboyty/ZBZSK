@@ -21,37 +21,32 @@
     </div>
     <div class="zyRight">
         <div class="zyPanel">
-            <div class="zyPanelTitle">知识库上传</div>
+            <div class="zyPanelTitle" style="height: 52px;line-height: 36px;">
+                知识库上传
+                <button class="btn right">上传</button>
+                <button id="previewBtn" class="btn right">预览</button>
+                <button class="btn grey right">删除</button>
+            </div>
             <div class="zyPanelContent">
-                <!--<div class="row">
-                    <div class="col s12">
-                        <ul class="tabs">
-                            <li class="tab col s3"><a class="active" href="#test1">Test 1</a></li>
-                            <li class="tab col s3"><a href="#test2">Test 2</a></li>
-                            <li class="tab col s3"><a href="#test4">Test 4</a></li>
-                        </ul>
-                    </div>
-                    <div id="test1" class="col s12">Test 1</div>
-                    <div id="test2" class="col s12">Test 2</div>
-                    <div id="test4" class="col s12">Test 4</div>
-                </div>-->
 
                 <ul class="tabs">
-                    <li class="tab "><a class="active" href="#test1">Test 1</a></li>
-                    <li class="tab  "><a href="#test2">Test 2</a></li>
-                    <li class="tab  "><a href="#test4">Test 4</a></li>
+                    <li class="tab "><a href="#info">整体信息</a></li>
+                    <li class="tab  "><a  class="active" href="#infoChild">分结构信息</a></li>
                 </ul>
-                <div id="test1" class="zyTabPanel">
+                <div id="info" class="zyTabPanel">
                     <link rel="import" href="info.html?__inline">
                 </div>
-                <div id="test2" class="zyTabPanel">Test 2</div>
-                <div id="test4" class="zyTabPanel">Test 4</div>
+                <div id="infoChild" class="zyTabPanel">
+                    <link rel="import" href="infoChild.html?__inline">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<link rel="import" href="cutImage.html?__inline">
 
+<link rel="import" href="preview.html?__inline">
 
 <!-- Compiled and minified JavaScript -->
 <script>

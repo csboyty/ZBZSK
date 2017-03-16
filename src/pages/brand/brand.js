@@ -18,7 +18,7 @@ $(document).ready(function() {
                 aoColumns: [
                     { "mDataProp": "image",
                         "fnRender":function(oObj){
-                            return  "<img width='100px;' src='"+oObj.aData.image+"'>";
+                            return  "<img class='thumb' src='"+oObj.aData.image+"'>";
                         }
                     },
                     { "mDataProp": "name"},
