@@ -58,6 +58,34 @@ li{
     margin-left: 200px;
     min-height: 100%;
 }
+/************************************按钮组****************************/
+.zyGroupButtons{
+    text-align: center;
+    margin: 10px;
+    font-size: 0px;
+}
+.zyGroupButtons .zyGBItem{
+    height: 32px;
+    line-height: 32px;
+    font-size:14px;
+    width: 100px;
+    color: #000000;
+    border:1px solid #ccc;
+    display: inline-block;
+}
+.zyGroupButtons .zyGBItem:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.zyGroupButtons .zyGBItem:last-child{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.zyGroupButtons .zyGBItem.zyGBItemActive{
+    background: #eee;
+    color: darkgrey;
+}
+/******************************颜色标签*****************************/
 .zyColorItem{
     display: inline-block;
 }
@@ -378,6 +406,8 @@ textarea.zyTextarea{
 }
 .modal{
     border-radius: 0px;
+    max-height: 80%;
+    width: 60%;
 }
 .modal .modal-header{
     text-align: center;
@@ -389,4 +419,21 @@ textarea.zyTextarea{
 }
 .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat{
     float: none;
+}
+.zyModal{
+    overflow-y: hidden;
+    height: 500px;
+    max-height: 100%;
+}
+.zyModal .modal-content{
+    height: 400px;
+}
+.zyModal .zyTabPanel{
+    height:320px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+/******************************************crop-holder*************************/
+.jcrop-holder{
+    margin: auto;
 }

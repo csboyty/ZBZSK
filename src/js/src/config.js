@@ -112,6 +112,18 @@ var config={
         }
 
         return index;
+    },
+    computeImageCss:function(showWidth,customData){
+        var rw=showWidth/customData.w,ry=showWidth/customData.h,
+            realW=rw*customData.boundW,realH=rw*customData.boundH,
+            marginL=-customData.x*realW,marginT=-customData.y*realH;
+
+        return {
+            realW:realW,
+            realH:realH,
+            marginL:marginL,
+            marginT:marginT
+        }
     }
 };
 $(document).ready(function(){
