@@ -74,8 +74,104 @@ var config={
         uploadSizeError:"最大文件大小${value}！",
         uploadExtensionError:"只允许上传${value}！",
         uploadIOError:"上传出错，请稍后重试！",
-        imageSizeError:"图片大小不符合！"
+        imageSizeError:"图片大小不符合！",
+        pleaseFillRequired:"请填写所有的必要字段！"
     },
+    colorItemTpl:[
+        '{@each items as item}',
+        '<div class="zyColorItem">',
+        '<span class="zyColorShow" style="background:${item}"></span>',
+        '</div>',
+        '{@/each}'
+    ].join(""),
+    infoChildTrsTpl:[
+        '{@each items as item,index}',
+        '<tr>',
+        '<td>$${item.imageString}</td>',
+        '<td>${item.name}</td>',
+        '<td>$${item.colorString}</td>',
+        '<td>${item.texture}</td>',
+        '<td>${item.hasBiaoZhi}</td>',
+        '<td>$${item.infoFullString}</td>',
+        '<td><a href="${id}" class="zyActionEdit">编辑</a></td>',
+        '</tr>',
+        '{@/each}'
+    ].join(''),
+    infoChildTrTpl:[
+        '<tr>',
+        '<td>$${imageString}</td>',
+        '<td>${name}</td>',
+        '<td>$${colorString}</td>',
+        '<td>${texture}</td>',
+        '<td>${hasBiaoZhi}</td>',
+        '<td>$${infoFullString}</td>',
+        '<td><a href="${id}" class="zyActionEdit">编辑</a></td>',
+        '</tr>'
+    ].join(''),
+    categoryAllOptionTpl:[
+        '<option value="">产品类别</option>',
+        '{@each items as item,index}',
+        '<option value="${item.name}">${item.name}</option>',
+        '{@/each}'
+    ].join(""),
+    categoryAllCheckboxTpl:[
+        '{@each items as item,index}',
+        '<input class="filled-in" name="type" value="${item.name}" ',
+            'type="checkbox" id="category${idFlag}${index}"  />',
+        '<label for="category${idFlag}${index}"  style="margin-right: 10px;">${item.name}</label>',
+        '{@/each}'
+    ].join(""),
+    categoryTreeTpl:[
+        '<option value="">全部结构</option>',
+        '{@each items as item,index}',
+        '<optgroup label="${item.name}">',
+            '{@each item.childs as ic}',
+                '<option value="${ic.name}">${ic.name}</option>',
+            '{@/each}',
+        '</optgroup>',
+        '{@/each}'
+    ].join(''),
+    brandAllOptionTpl:[
+        '<option value="">品牌</option>',
+        '{@each items as item,index}',
+        '<option value="${item.name}" data-value="${item.image}">${item.name}</option>',
+        '{@/each}'
+    ].join(""),
+    brandAllCheckboxTpl:[
+        '{@each items as item,index}',
+        '<input class="filled-in" name="type" value="${item.name}" type="checkbox" id="category${idFlag}${index}"  />',
+        '<label for="category${idFlag}${index}"  style="margin-right: 10px;">',
+        '<img src="${item.image}">${item.name}</label>',
+        '{@/each}'
+    ].join(""),
+    textureAllCheckboxTpl:[
+        '{@each items as item,index}',
+        '<input class="filled-in" name="type" value="${item.name}" ',
+        'type="checkbox" id="category${idFlag}${index}"  />',
+        '<label for="category${idFlag}${index}" style="margin-right: 10px;">${item.name}</label>',
+        '{@/each}'
+    ].join(''),
+    styleAllTpl:[
+        '{@each items as item,index}',
+        '<div class="chip">',
+        '${item}',
+        '<i class="close material-icons">close</i>',
+        '<input type="hidden" value="${item}">',
+        '</div>',
+        '{@/each}'
+    ].join(''),
+    styleTpl:[
+        '<div class="chip">',
+        '${data}',
+        '<i class="close material-icons">close</i>',
+        '<input type="hidden" value="${data}">',
+        '</div>'
+    ].join(''),
+    cutImageTpl:[
+        '<div style="width:${sizeW}px;height:${sizeW}px;overflow: hidden;display: inline-block">',
+            '<img src="${src}" style="width:${realW}px;height: ${realH}px;margin-left: ${marginL}px;margin-top: ${marginT}px">',
+        '</div>'
+    ].join(''),
     initData:{
         brand:[
             {id:0, image:"/images/brand.png", name:"Edinburgh","opt":""}
@@ -88,18 +184,48 @@ var config={
             { id:0, name:"亮光", opt:""}
         ],
         category:[
-            { id:"00", pId:0, name:"汽车类别", open:true},
-            { id:1, pId:"00", name:"起重机"},
-            { id:2, pId:"00", name:"吊车"},
-            { id:3, pId:1, name:"上车"},
-            { id:4, pId:1, name:"下车"},
-            { id:5, pId:3, name:"驾驶室"},
-            { id:6, pId:3, name:"前脸"},
-            { id:7, pId:5, name:"操纵室"},
-            { id:8, pId:5, name:"转台"},
-            { id:9, pId:6, name:"侧护板"},
-            { id:10, pId:6, name:"支腿"},
-            { id:11, pId:6, name:"尾部"}
+            { id:"00", pId:0, name:"汽车类别", open:true,isParent:true},
+            { id:1, pId:"00", name:"起重机",isParent:true},
+            { id:2, pId:"00", name:"吊车",isParent:true},
+            { id:3, pId:1, name:"上车",isParent:true},
+            { id:4, pId:1, name:"下车",isParent:true},
+            { id:5, pId:3, name:"驾驶室",isLeaf:true},
+            { id:6, pId:3, name:"前脸",isLeaf:true},
+            { id:7, pId:3, name:"操纵室",isLeaf:true},
+            { id:8, pId:3, name:"转台",isLeaf:true},
+            { id:9, pId:4, name:"侧护板",isLeaf:true},
+            { id:10, pId:4, name:"支腿",isLeaf:true},
+            { id:11, pId:4, name:"尾部",isLeaf:true}
+        ],
+        mgr:[
+            {
+                id:0,
+                opt:"",
+                imageChanPin:"/images/product1.svg",
+                imageXianXin:"/images/product1.svg",
+                brand:"Edinburgh",
+                category:"起重机",
+                marketType:"上市产品",
+                marketDate:"2016.3.1",
+                style:["简约","时尚"],
+                modal:"xxxxx.fbx",
+                texture:["亚光"],
+                color:["red","green"],
+                componentInfo:[
+                    {
+                        image:{
+                            src:"/images/product1.svg",
+                            customData:{boundW: 600, boundH: 600, x: 0.20333333333333334, y: 0.20833333333333334, ratio: 1}
+                        },
+                        name:"上车/摇臂",
+                        texture:["亚光"],
+                        color:["red"],
+                        hasBiaoZhi:"",
+                        infoFull:0,
+                        appraise:"xxxxx"
+                    }
+                ]
+            }
         ]
     },
     findInArray:function(list,key,keyValue){
@@ -112,19 +238,8 @@ var config={
         }
 
         return index;
-    },
-    computeImageCss:function(showWidth,customData){
-        var rw=showWidth/customData.w,ry=showWidth/customData.h,
-            realW=rw*customData.boundW,realH=rw*customData.boundH,
-            marginL=-customData.x*realW,marginT=-customData.y*realH;
-
-        return {
-            realW:realW,
-            realH:realH,
-            marginL:marginL,
-            marginT:marginT
-        }
     }
+
 };
 $(document).ready(function(){
 
@@ -148,12 +263,12 @@ $(document).ready(function(){
 
     $(".zySelect .zySSelect").change(function(){
         var parent=$(this).parent(".zySelect"),
-            val=$(this).val();
-        if(val){
+            dataValue=$(this).find("option:selected").data("value")||$(this).val();
+        if(dataValue){
             if(parent.hasClass("zySelectHasImg")){
-                parent.find(".zySShow").attr("src",val);
+                parent.find(".zySShow").attr("src",dataValue);
             }else{
-                parent.find(".zySShow").css("background-color",val);
+                parent.find(".zySShow").css("background-color",dataValue);
             }
             parent.removeClass("zyNoSelect");
         }else{

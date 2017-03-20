@@ -1,13 +1,18 @@
-<div class="hide">
+<div id="infoChildMgr">
     <div class="row zyForm">
         <label class="zyFormLabel">分结构位置:</label>
-        <select class="zyInput">
-            <option value="全部位置">全部位置</option>
-            <option value="起重机">起重机</option>
-            <option value="推土机">推土机</option>
+        <select class="zyInput input-field zyActionCategory" id="infoChildSearch">
+            <optgroup label="team 1">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+            </optgroup>
+            <optgroup label="team 2">
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+            </optgroup>
         </select>
     </div>
-    <table class="dataTable">
+    <table class="dataTable" id="infoChildTable">
         <thead>
         <tr>
             <th>图片</th>
@@ -20,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
+        <!--<tr>
             <td><img class="thumb" src="/images/brand.png"></td>
             <td>上车/操纵室</td>
             <td>
@@ -32,7 +37,7 @@
             <td>亮光</td>
             <td>有</td>
             <td><i class="material-icons green-text">done</i></td>
-            <td><a href="1">编辑</a></td>
+            <td><a href="0" class="zyActionEdit">编辑</a></td>
         </tr>
         <tr>
             <td><img class="thumb" src="/images/brand.png"></td>
@@ -46,8 +51,8 @@
             <td>亮光</td>
             <td>有</td>
             <td><i class="material-icons red-text">close</i></td>
-            <td><a href="1">编辑</a></td>
-        </tr>
+            <td><a href="1" class="zyActionEdit">编辑</a></td>
+        </tr>-->
         </tbody>
     </table>
 </div>

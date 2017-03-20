@@ -88,6 +88,7 @@ li{
 /******************************颜色标签*****************************/
 .zyColorItem{
     display: inline-block;
+    margin:0px 5px;
 }
 .zyColorItem .zyColorShow{
     height: 40px;
@@ -310,6 +311,10 @@ table.dataTable td {
 table.dataTable td a{
     color: #ae4127;
 }
+table.dataTable td .zyColorItem .zyColorShow{
+    width: 20px;
+    height: 20px;
+}
 table.dataTable .thumb{
     width: 100px;
     height: auto;
@@ -432,6 +437,34 @@ textarea.zyTextarea{
     height:320px;
     overflow-y:auto;
     overflow-x:hidden;
+}
+.select-wrapper{
+    width: 180px;
+    display: inline-block;
+    margin:0px;
+}
+.select-wrapper.right{
+    margin: 10px 0px;
+}
+.select-wrapper span.caret{
+    z-index: 10;
+    right:5px;
+}
+.select-wrapper input.select-dropdown{
+    border: 1px solid #ccc;
+    height: 36px;
+    line-height: 36px;
+    box-sizing: border-box;
+    margin: 0px;
+    vertical-align: top;
+    padding-left: 5px;
+    background: #eee;
+}
+.select-wrapper .dropdown-content{
+    max-height: 300px!important;
+}
+.select-wrapper select.zyInput{
+    display: none;
 }
 /******************************************crop-holder*************************/
 .jcrop-holder{

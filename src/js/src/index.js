@@ -16,4 +16,8 @@ window.onload=function(){
     if(!localStorage.getItem("category")){
         localStorage.setItem("category",JSON.stringify(config.initData.category));
     }
+
+    if(!localStorage.getItem("mgr")){
+        localStorage.setItem("mgr",JSON.stringify(config.initData.mgr));
+    }
 };

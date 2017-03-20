@@ -1,11 +1,11 @@
 
 <div class="zySearch" id="zySearch">
     <div class="zySearchRow">
-        <a class="waves-effect waves-light btn" href="/pages/mgr/cou.html">
+        <a class="waves-effect waves-light btn" href="/pages/mgr/cou/cou.html">
             <i class="material-icons left">backup</i>上传</a>
 
         <div class="right">
-            <input type="text" class="zyInput" placeholder="搜索关键词">
+            <input type="text" class="zyInput" placeholder="搜索风格">
             <button class="btn waves-effect waves-light grey lighten-2 black-text">搜索
                 <i class="material-icons left">search</i>
             </button>
@@ -15,9 +15,9 @@
     <div class="zySearchRow">
         <h4 class="zySearchTitle">上市时间</h4>
         <div class="zySearchContent">
-            <input type="text" class="zyInput" placeholder="2014">
+            <input type="date" class="zyInput">
             -
-            <input type="text" class="zyInput" placeholder="2016">
+            <input type="date" class="zyInput">
         </div>
     </div>
     <div class="zySearchRow">
@@ -35,19 +35,13 @@
     </div>
     <div class="zySearchRow">
         <h4 class="zySearchTitle">品牌</h4>
-        <div class="zySearchContent row">
-            <div class="col">
-                <input type="checkbox" class="filled-in" id="brand1" checked="checked" />
-                <label for="brand1"><img src="/images/brand.png">三一重工</label>
-            </div>
-            <div class="col">
-                <input type="checkbox" class="filled-in" id="brand2"  />
-                <label for="brand2"><img src="/images/brand.png">中联重科</label>
-            </div>
+        <div class="zySearchContent" id="searchBrand">
+            <!--<input type="checkbox" class="filled-in" id="brand1" checked="checked" />
+                <label for="brand1"><img src="/images/brand.png">三一重工</label>-->
         </div>
     </div>
     <div class="zySearchRow">
-        <h4 class="zySearchTitle">纹理</h4>
+        <h4 class="zySearchTitle">颜色</h4>
         <div class="zySearchContent row">
             <div class="col">
                 <div class="zySelect zyNoSelect">
@@ -89,15 +83,9 @@
 
     <div class="zySearchRow">
         <h4 class="zySearchTitle">纹理</h4>
-        <div class="zySearchContent row">
-            <div class="col">
-                <input type="checkbox" class="filled-in" id="wenli1"  />
-                <label for="wenli1">亮光</label>
-            </div>
-            <div class="col">
-                <input type="checkbox" class="filled-in" id="wenli2" checked="checked" />
-                <label for="wenli2">亚光</label>
-            </div>
+        <div class="zySearchContent" id="searchTexture">
+            <!--<input type="checkbox" class="filled-in" id="wenli1"  />
+                <label for="wenli1">亮光</label>-->
         </div>
     </div>
 

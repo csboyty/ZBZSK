@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>知识库</title>
-    <link rel="stylesheet" href="../../css/lib/materialicons.css" >
-    <link rel="stylesheet" href="../../css/lib/materialize.min.css">
-    <link rel="stylesheet" href="../../css/lib/jquery.Jcrop.min.css">
-    <link rel="stylesheet" href="../../css/src/main.css">
-    <link rel="stylesheet" href="../../pages/header/header.css">
-    <link rel="stylesheet" href="../../pages/menu/menu.css">
-    <link rel="stylesheet" href="../../pages/mgr/mgr.css">
+    <link rel="stylesheet" href="../../../css/lib/materialicons.css" >
+    <link rel="stylesheet" href="../../../css/lib/materialize.min.css">
+    <link rel="stylesheet" href="../../../css/lib/jquery.Jcrop.min.css">
+    <link rel="stylesheet" href="../../../css/src/main.css">
+    <link rel="stylesheet" href="../../../pages/header/header.css">
+    <link rel="stylesheet" href="../../../pages/menu/menu.css">
+    <link rel="stylesheet" href="../../../pages/mgr/mgr.css">
 </head>
 <body>
 
 
-<link rel="import" href="../header/header.html?__inline">
+<link rel="import" href="../../header/header.html?__inline">
 
 <div class="zyMain">
     <div class="zyLeft">
-        <link rel="import" href="../menu/menu.html?__inline">
+        <link rel="import" href="../../menu/menu.html?__inline">
     </div>
     <div class="zyRight">
         <div class="zyPanel">
@@ -30,9 +30,9 @@
             </div>
             <div class="zyPanelContent">
 
-                <ul class="tabs">
-                    <li class="tab "><a href="#info">整体信息</a></li>
-                    <li class="tab  "><a  class="active" href="#infoChild">分结构信息</a></li>
+                <ul class="tabs" id="tab">
+                    <li class="tab "><a class="active" href="#info">整体信息</a></li>
+                    <li class="tab "><a  href="#infoChild">分结构信息</a></li>
                 </ul>
                 <div id="info" class="zyTabPanel">
                     <link rel="import" href="info.html?__inline">
@@ -53,10 +53,12 @@
 <script>
     var pageName="mgr";
 </script>
-<script src="../../js/lib/jquery-2.0.3.min.js"></script>
-<script src="../../js/lib/materialize.min.js"></script>
-<script src="../../js/lib/jquery.Jcrop.min.js"></script>
-<script src="../../js/src/config.js"></script>
+<script src="../../../js/lib/jquery-2.0.3.min.js"></script>
+<script src="../../../js/lib/materialize.min.js"></script>
+<script src="../../../js/lib/jquery.Jcrop.min.js"></script>
+<script src="../../../js/lib/juicer-min.js"></script>
+<script src="../../../js/src/config.js"></script>
+<script src="../../../js/src/ZYCtrlDataHandler.js"></script>
 <script src="cou.js"></script>
 
 </body>

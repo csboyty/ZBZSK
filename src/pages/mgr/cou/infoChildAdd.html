@@ -1,20 +1,20 @@
 
-<div class="zyPanel">
+<div id="infoChildAdd" class="zyPanel hide">
     <div class="zyPanelTitle">知识库上传</div>
     <div class="zyPanelContent" style="padding: 20px 0px;">
         <div class="row zyForm">
             <div class="col s6">
                 <div class="row">
-                    <label class="zyFormLabel zyRequired zyTARLabel">图像截取:</label>
+                    <label class="zyFormLabel zyTARLabel">图像截取:</label>
                     <div style="width: 100px;height: 100px;overflow: hidden;display: inline-block">
-                        <img id="cutImage" src="/images/cut.png">
+                        <img src="/images/cut.png" id="cutImage">
                     </div>
                 </div>
                 <div class="row">
-                    <label class="zyFormLabel zyRequired zyTARLabel">颜色:</label>
+                    <label class="zyFormLabel zyTARLabel">颜色:</label>
                     <div class="zySelect">
                         <span class="zySShow"></span>
-                        <select class="zySSelect">
+                        <select class="zySSelect" id="iCAddColor">
                             <option value="">颜色</option>
                             <option value="red">red</option>
                             <option value="blue">blue</option>
@@ -24,36 +24,33 @@
             </div>
             <div class="col s6 zyHasLeftBorder" style="padding-left: 30px;">
                 <div class="row">
-                    <label class="zyFormLabel zyRequired">纹理:</label>
-                    <div class="zyFormAllInlineCtrl">
+                    <label class="zyFormLabel">纹理:</label>
+                    <div class="zyFormAllInlineCtrl" id="iCAddTexture">
 
-                        <input class="filled-in" name="type" type="checkbox" id="textureChild1"  />
-                        <label for="textureChild1">亮光</label>
-
-                        <input  class="filled-in" name="type" type="checkbox" id="textureChild2"  />
-                        <label style="margin-left: 50px" for="textureChild2">亚光</label>
+                        <!--<input class="filled-in" name="texture" value="亮光" type="checkbox" id="textureChild1"  />
+                        <label for="textureChild1">亮光</label>-->
                     </div>
                 </div>
                 <div class="row">
-                    <label class="zyFormLabel zyRequired">标识:</label>
+                    <label class="zyFormLabel">标识:</label>
                     <div class="zyFormAllInlineCtrl">
 
-                        <input class="with-gap" name="biaoZhi" type="radio" id="biaoZhi1"  />
+                        <input class="with-gap" name="biaoZhi" value="有" type="radio" id="biaoZhi1"  checked/>
                         <label for="biaoZhi1">有</label>
 
-                        <input  class="with-gap" name="biaoZhi" type="radio" id="biaoZhi2"  />
+                        <input  class="with-gap" name="biaoZhi" value="无" type="radio" id="biaoZhi2"  />
                         <label style="margin-left: 50px" for="biaoZhi2">无</label>
                     </div>
                 </div>
                 <div class="row">
-                    <label class="zyFormLabel zyRequired">造型评价:</label>
-                    <textarea class="zyTextarea" placeholder="添加额外的造型评价"></textarea>
+                    <label class="zyFormLabel">造型评价:</label>
+                    <textarea class="zyTextarea" placeholder="添加额外的造型评价" id="iCAddAppraise"></textarea>
                 </div>
             </div>
         </div>
         <div style="margin-top: 20px;text-align: center;">
-            <button class="btn">保存</button>
-            <button class="btn grey">取消</button>
+            <button class="btn" id="infoChildSave">保存</button>
+            <button class="btn grey" id="infoChildCancel">取消</button>
         </div>
     </div>
 
