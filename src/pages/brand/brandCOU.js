@@ -40,7 +40,7 @@ $(document).ready(function(){
 
     $("#uploadFile").change(function(){
         var name=this.files[0].name,
-            url="/images/data/"+name;
+            url="/data/"+name;
 
         $("#image").val(url);
         $("#imageShow").attr("src",url);

@@ -93,7 +93,9 @@ var config={
         '<td>${item.texture}</td>',
         '<td>${item.hasBiaoZhi}</td>',
         '<td>$${item.infoFullString}</td>',
-        '<td><a href="${id}" class="zyActionEdit">编辑</a></td>',
+        '{@if type=="infoChild"}',
+        '<td><a href="${item.id}" class="zyActionEdit">编辑</a></td>',
+        '{@/if}',
         '</tr>',
         '{@/each}'
     ].join(''),
@@ -116,7 +118,7 @@ var config={
     ].join(""),
     categoryAllCheckboxTpl:[
         '{@each items as item,index}',
-        '<input class="filled-in" name="type" value="${item.name}" ',
+        '<input class="filled-in" name="category" value="${item.name}" ',
             'type="checkbox" id="category${idFlag}${index}"  />',
         '<label for="category${idFlag}${index}"  style="margin-right: 10px;">${item.name}</label>',
         '{@/each}'
@@ -139,16 +141,16 @@ var config={
     ].join(""),
     brandAllCheckboxTpl:[
         '{@each items as item,index}',
-        '<input class="filled-in" name="type" value="${item.name}" type="checkbox" id="category${idFlag}${index}"  />',
-        '<label for="category${idFlag}${index}"  style="margin-right: 10px;">',
+        '<input class="filled-in" name="brand" value="${item.name}" type="checkbox" id="brand${idFlag}${index}"  />',
+        '<label for="brand${idFlag}${index}"  style="margin-right: 10px;">',
         '<img src="${item.image}">${item.name}</label>',
         '{@/each}'
     ].join(""),
     textureAllCheckboxTpl:[
         '{@each items as item,index}',
-        '<input class="filled-in" name="type" value="${item.name}" ',
-        'type="checkbox" id="category${idFlag}${index}"  />',
-        '<label for="category${idFlag}${index}" style="margin-right: 10px;">${item.name}</label>',
+        '<input class="filled-in" name="texture" value="${item.name}" ',
+        'type="checkbox" id="texture{idFlag}${index}"  />',
+        '<label for="texture{idFlag}${index}" style="margin-right: 10px;">${item.name}</label>',
         '{@/each}'
     ].join(''),
     styleAllTpl:[
@@ -156,7 +158,7 @@ var config={
         '<div class="chip">',
         '${item}',
         '<i class="close material-icons">close</i>',
-        '<input type="hidden" value="${item}">',
+        '<input type="hidden" value="${item}" name="infoStyle">',
         '</div>',
         '{@/each}'
     ].join(''),
@@ -164,7 +166,7 @@ var config={
         '<div class="chip">',
         '${data}',
         '<i class="close material-icons">close</i>',
-        '<input type="hidden" value="${data}">',
+        '<input type="hidden" value="${data}" name="infoStyle">',
         '</div>'
     ].join(''),
     cutImageTpl:[
@@ -174,7 +176,7 @@ var config={
     ].join(''),
     initData:{
         brand:[
-            {id:0, image:"/images/brand.png", name:"Edinburgh","opt":""}
+            {id:0, image:"/data/brand.png", name:"Edinburgh","opt":""}
         ],
         color:[
             {id:0,value:"red",name:"红色",opt:""}
@@ -201,8 +203,8 @@ var config={
             {
                 id:0,
                 opt:"",
-                imageChanPin:"/images/product1.svg",
-                imageXianXin:"/images/product1.svg",
+                imageChanPin:"/data/product1.svg",
+                imageXianXin:"/data/product1.svg",
                 brand:"Edinburgh",
                 category:"起重机",
                 marketType:"上市产品",
@@ -210,11 +212,11 @@ var config={
                 style:["简约","时尚"],
                 modal:"xxxxx.fbx",
                 texture:["亚光"],
-                color:["red","green"],
+                color:["red","blue","blue"],
                 componentInfo:[
                     {
                         image:{
-                            src:"/images/product1.svg",
+                            src:"/data/product1.svg",
                             customData:{boundW: 600, boundH: 600, x: 0.20333333333333334, y: 0.20833333333333334, ratio: 1}
                         },
                         name:"上车/摇臂",

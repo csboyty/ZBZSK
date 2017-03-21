@@ -18,9 +18,9 @@ $(document).ready(function() {
                 aoColumns: [
                     { "mDataProp": "value",
                         "fnRender":function(oObj){
-                            return '<div class="zyColorItem">'+
-                                '<span class="zyColorShow" style="background: '+oObj.aData.value+'"></span>'+
-                                '</div>';
+                            return juicer(config.colorItemTpl,{
+                                items:[oObj.aData.value]
+                            });
                         }
                     },
                     { "mDataProp": "name"},

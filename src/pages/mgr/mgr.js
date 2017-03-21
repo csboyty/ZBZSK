@@ -1,6 +1,46 @@
 var mgr=(function(config,ZYCtrlDataHandler){
 
     return {
+        table:null,
+        getSearchInfo:function(){
+            var params={};
+            params.style=$("#searchStyleInput").val();
+            params.startDate=$("#searchStartDate").val();
+            params.endDate=$("#searchEndDate").val();
+            params.marketType=[];
+            $("#searchMarketType").find("input[type='checkbox']").each(function(index,el){
+                el=$(el);
+                if(el.prop("checked")){
+                    params.marketType.push(el.val());
+                }
+            });
+
+            params.brand=$("#searchBrand").val();
+            params.mainColor=$("#searchMainColor").val();
+            params.assistColor1=$("#searchAssistColor1").val();
+            params.assistColor2=$("#searchAssistColor2").val();
+            params.texture=[];
+            $("#searchTexture").find("input[type='checkbox']").each(function(index,el){
+                el=$(el);
+                if(el.prop("checked")){
+                    params.texture.push(el.val());
+                }
+            });
+
+            return params;
+
+        },
+        search:function(){
+            this.table.tableSearch(this.getSearchInfo());
+        },
+        initSearchHandler:function(){
+            var me=this;
+            $("#search").on("click","input[type='checkbox'],.zyActionSearchByClick",function(){
+                me.search();
+            }).on("change",".zyActionSearchByChange",function(){
+                me.search();
+            });
+        },
         initData:function(){
             $("#searchBrand").html(ZYCtrlDataHandler.getBrandItems("checkbox"));
             $("#searchTexture").html(ZYCtrlDataHandler.getTextureItems());
@@ -11,22 +51,23 @@ var mgr=(function(config,ZYCtrlDataHandler){
 $(document).ready(function(){
 
     mgr.initData();
+    mgr.initSearchHandler();
 
     $("#zySearchCollapse").click(function(){
         if($(this).data("target").indexOf("up")!=-1){
-            $("#zySearch .zySearchRow").hide(400);
+            $("#search .zySearchRow").hide(400);
             $(this).find(".material-icons").text("keyboard_arrow_down");
             $(this).data("target","down");
             $(this).find(".zyCCText").text("展开选项");
         }else{
-            $("#zySearch .zySearchRow").show(400);
+            $("#search .zySearchRow").show(400);
             $(this).find(".material-icons").text("keyboard_arrow_up");
             $(this).data("target","up");
             $(this).find(".zyCCText").text("收起选项");
         }
     });
 
-    var table=new ZYTableHandler({
+    mgr.table=new ZYTableHandler({
         keyName:"mgr",
         ownTable:function(data){
             var dtTable=$('#myTable').dataTable( {

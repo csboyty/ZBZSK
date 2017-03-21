@@ -73,41 +73,35 @@ var cou=(function(config){
 
             return valid;
         },
-        setHtmlForInfoChildTable:function(list){
+        setHtmlForInfoChildTable:function(list,tableTbody){
 
-            var arrTrs=[],arrTr=[],item,
-                infoFullString,colorString,imageString;
+            var item;
             for(var j=0,jLen=list.length;j<jLen;j++){
                 item=list[j];
-                imageString="";
 
-                if(item.image.src){
-                    imageString=ZYCtrlDataHandler.getCutImageEl(100,item.image.customData);
+                //imageString在编辑的时候会处理
+                if(!item.imageString){
+                    item.imageString="";
                 }
 
-                infoFullString=item.infoFull==1?'<i class="material-icons green-text">done</i>':'<i class="material-icons red-text">close</i>';
-                colorString=item.color?'<div class="zyColorItem">'+
-                    '<span class="zyColorShow" style="width: 20px;height: 20px;background: '+item.color+'"></span>'+
-                    '</div>':"";
+                if(!item.infoFullString){
+                    item.infoFullString=item.infoFull==1?'<i class="material-icons green-text">done</i>':'<i class="material-icons red-text">close</i>';
+                }
 
-                arrTr=[
-                    '<tr>',
-                    '<td>'+imageString+'</td>',
-                    '<td>'+item.name+'</td>',
-                    '<td>'+colorString+'</td>',
-                    '<td>'+item.texture+'</td>',
-                    '<td>'+item.hasBiaoZhi+'</td>',
-                    '<td>'+infoFullString+'</td>',
-                    '<td><a href="'+item.id+'" class="zyActionEdit">编辑</a></td>',
-                    '</tr>'
-                ];
+                if(!item.colorString){
+                    item.colorString=item.color?'<div class="zyColorItem">'+
+                        '<span class="zyColorShow" style="width: 20px;height: 20px;background: '+item.color+'"></span>'+
+                        '</div>':"";
+                }
 
-                arrTrs.push(arrTr.join(''));
             }
 
-            $("#infoChildTable tbody").html(arrTrs.join(''));
+            tableTbody.html(juicer(config.infoChildTrsTpl,{
+                type:tableTbody.data("type"),
+                items:list
+            }));
         },
-        initInfoChildTable:function(){
+        initInfoChildTable:function(tableTbody){
             var categories=JSON.parse(localStorage.getItem("category")),
                 arr=[],parent;
             for(var i=0,len=categories.length;i<len;i++){
@@ -126,9 +120,9 @@ var cou=(function(config){
                 }
             }
 
-            this.setHtmlForInfoChildTable(this.componentInfo);
+            this.setHtmlForInfoChildTable(this.componentInfo,tableTbody);
         },
-        filterInfoChildTable:function(filter){
+        filterInfoChildTable:function(filter,tableTbody){
             var arr=[];
             for(var i=0,len=this.componentInfo.length;i<len;i++){
                 if(this.componentInfo[i].name.indexOf(filter)!=-1){
@@ -136,16 +130,15 @@ var cou=(function(config){
                 }
             }
 
-            this.setHtmlForInfoChildTable(arr);
+            this.setHtmlForInfoChildTable(arr,tableTbody);
         },
         infoChildSave:function(){
-            var component=this.componentInfo[this.infoChildIndex],
-                arrTr,infoFullString,colorString,imageString="";
+            var component=this.componentInfo[this.infoChildIndex];
 
             if(this.cutCtrl&&this.cutCtrl.customData){
                 component.image.src=this.cutCtrl.customData.src;
                 component.image.customData=this.cutCtrl.customData;
-                imageString=ZYCtrlDataHandler.getCutImageEl(100,this.cutCtrl.customData);
+                component.imageString=ZYCtrlDataHandler.getCutImageEl(100,this.cutCtrl.customData);
             }
             component.hasBiaoZhi=$("#infoChildAdd input[name='biaoZhi']").val();
             component.color=$("#iCAddColor").val();
@@ -156,23 +149,13 @@ var cou=(function(config){
             component.appraise=$("#iCAddAppraise").val();
 
 
-            infoFullString=component.infoFull==1?'<i class="material-icons green-text">done</i>':'<i class="material-icons red-text">close</i>';
-            colorString=component.color?'<div class="zyColorItem">'+
+            component.infoFullString=component.infoFull==1?'<i class="material-icons green-text">done</i>':'<i class="material-icons red-text">close</i>';
+            component.colorString=component.color?'<div class="zyColorItem">'+
                 '<span class="zyColorShow" style="width: 20px;height: 20px;background: '+component.color+'"></span>'+
                 '</div>':"";
 
-            arrTr=[
-                '<tr>',
-                '<td>'+imageString+'</td>',
-                '<td>'+component.name+'</td>',
-                '<td>'+colorString+'</td>',
-                '<td>'+component.texture+'</td>',
-                '<td>'+component.hasBiaoZhi+'</td>',
-                '<td>'+infoFullString+'</td>',
-                '<td><a href="'+component.id+'" class="zyActionEdit">编辑</a></td>',
-                '</tr>'
-            ];
-            this.currentInfoChildTr.replaceWith(arrTr.join(''));
+
+            this.currentInfoChildTr.replaceWith(juicer(config.infoChildTrTpl,component));
 
             this.showInfoChildMgr();
         },
@@ -212,33 +195,85 @@ var cou=(function(config){
 
             this.initICAdd();
         },
+        getSubmitData:function(){
+            var data={};
+
+            data.imageChanPin=$("#infoImageChanPin").val();
+            data.imageXianXin=$("#infoImageXianXin").val();
+            data.brand=$("#infoBrand").val();
+            data.category=$("#infoCategory").val();
+            data.marketType=$("input[name='infoMarketType']").val();
+            data.marketDate=$("#infoMarketDate").val();
+            data.style=[];
+            $("input[name='infoStyle']").each(function(index,el){
+                data.style.push($(el).val());
+            });
+            data.modal=$("#infoModal").val();
+            data.texture=[];
+            $("#infoTexture").find("input[type='checkbox']").each(function(index,el){
+                data.texture.push($(el).val());
+            });
+            data.color=[$("#infoMainColor").val(),$("#infoAssistColor1").val(),$("#infoAssistColor2").val()];
+            data.componentInfo=this.componentInfo;
+
+            this.submitData=data;
+
+            return data;
+            
+        },
         initData:function(){
             $("#infoCategory").html(ZYCtrlDataHandler.getCategoryFirstLevelItems("option"));
             $("#infoBrand").html(ZYCtrlDataHandler.getBrandItems("option"));
             $("#infoTexture").html(ZYCtrlDataHandler.getTextureItems());
             $("#iCAddTexture").html(ZYCtrlDataHandler.getTextureItems("iCAdd"));
             $(".zyActionCategory").html(ZYCtrlDataHandler.getCategoryTreeItems()).material_select();
-            this.initInfoChildTable();
+            this.initInfoChildTable($("#infoChildTable tbody"));
+
+            if(location.search){
+                this.editId=location.search.substr(1);
+                $("#remove").removeClass("hide");
+            }
         }
     }
 })(config,ZYCtrlDataHandler);
 $(document).ready(function(){
+    var formHandler=new ZYFormHandler({
+        keyName:"mgr",
+        redirectUrl:"/pages/mgr/mgr.html"
+    });
 
     cou.initData();
 
     $("#tab a").click(function(e){
         if($(this).attr("href")=="#infoChild"){
             if(!cou.validInfo($("#info"))){
-                //return false;
+                return false;
             }
         }
     });
-    $("input[type='file']").change(function(){
+    $("input[name='infoImage']").change(function(){
         var name=this.files[0].name,
-            url="/images/data/"+name;
+            url="/data/"+name;
 
         $(this).next().val(url);
         $(this).prev().attr("src",url);
+    });
+    $("#uploadModal").change(function(){
+        var name=this.files[0].name,
+            url="/data/"+name;
+
+        $("#infoModal").val(url);
+        $("#infoModalShow").text(name);
+    });
+    $("#infoAddStyle").click(function(){
+        var value=$("#infoStyleInput").val();
+        if(value){
+            $("#infoStyle").append(juicer(config.styleTpl,{
+                data:value
+            }));
+
+            $("#infoStyleInput").val("");
+        }
     });
 
     /**********************************分结构信息*******************************/
@@ -249,21 +284,23 @@ $(document).ready(function(){
         return false;
     });
     $("#infoChildSearch").change(function(){
-        cou.filterInfoChildTable($(this).val());
+        cou.filterInfoChildTable($(this).val(),$("#infoChildTable tbody"));
     });
     $('#cutImageModal').modal();
 
     $("#cutImageType").on("click",".zyGBItem",function(){
-        var type=$(this).data("type");
-        var imageSrc="/images/product1.svg";
+        var type=$(this).data("type"),
+            xianXinSrc=$("#infoImageXianXin").val(),
+            chanPinSrc=$("#infoImageChanPin").val(),
+            imageSrc;
 
         switch(type){
             case "tezhengxian":
-                imageSrc="/images/product1.svg";
+                imageSrc=xianXinSrc?xianXinSrc:chanPinSrc;
 
                 break;
             case "changpin":
-                imageSrc="/images/product1.svg";
+                imageSrc=chanPinSrc;
 
                 break;
         }
@@ -277,6 +314,7 @@ $(document).ready(function(){
 
     $("#cutImage").click(function(){
         $('#cutImageModal').modal('open');
+        $("#toCutImage").attr("src",$("#infoImageChanPin").val());
         cou.initJCrop();
     });
 
@@ -297,7 +335,38 @@ $(document).ready(function(){
     /*****************************预览部分************************/
     $("#previewModal").modal();
     $("#previewBtn").click(function(){
+        var submitData=cou.getSubmitData();
+
+        $("#pInfoCategory").text(submitData.category);
+        $("#pInfoType").text(submitData.marketType);
+        $("#pInfoMarketDate").text(submitData.marketDate);
+        $("#pInfoBrand").text(submitData.brand);
+        $("#pImageChanPin").attr("src",submitData.imageChanPin);
+        $("#pImageXianXin").attr("src",submitData.imageXianXin);
+        $("#pInfoTexture").text(submitData.texture.join(','));
+        $("#pInfoMainColor").css("background",submitData.color[0]);
+        $("#pInfoAssistColor1").css("background",submitData.color[1]);
+        $("#pInfoAssistColor2").css("background",submitData.color[2]);
+        $("#pInfoStyle").text(submitData.style.join(","));
+        $("#pInfoModal").attr("href",submitData.modal).text(submitData.modal);
+
+        cou.setHtmlForInfoChildTable(submitData.componentInfo,$("#pInfoChildTable tbody"));
+
         $("#previewModal").modal("open");
+    });
+    $("#pInfoChildTableSearch").change(function(){
+        cou.filterInfoChildTable($(this).val(),$("#pInfoChildTable tbody"));
+    });
+    $("#save").click(function(){
+        if(!cou.submitData){
+            cou.getSubmitData();
+        }
+
+        formHandler.submitForm(cou.submitData,cou.editId?cou.editId:undefined);
+
+    });
+    $("#remove").click(function(){
+        formHandler.remove(cou.editId);
     });
 
 });

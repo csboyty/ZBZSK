@@ -10,16 +10,16 @@
 
         <div class="zyFormAllInlineCtrl">
 
-            <input class="with-gap" name="type" type="radio" id="type1" checked/>
+            <input class="with-gap" name="infoMarketType" value="上市产品" type="radio" id="type1" checked/>
             <label for="type1">上市产品</label>
 
-            <input class="with-gap" name="type" type="radio" id="type2"/>
+            <input class="with-gap" name="infoMarketType" value="概念产品" type="radio" id="type2"/>
             <label style="margin-left: 50px" for="type2">概念产品</label>
         </div>
     </div>
     <div class="row">
         <label class="zyFormLabel zyRequired">上市日期：</label>
-        <input class="zyInput zyActionRequired" type="date">
+        <input class="zyInput zyActionRequired" type="date" id="infoMarketDate">
     </div>
     <div class="row">
         <label class="zyFormLabel zyRequired">品牌：</label>
@@ -39,13 +39,13 @@
             <label class="zyFormLabel zyRequired zyFormLabelHasSub">产品图像<br>&nbsp;&nbsp;&nbsp;&nbsp;(svg)</label>
             <div class="zyImageUpload">
                 <img src="/images/upload.png">
-                <input type="file">
+                <input type="file" name="infoImage">
                 <input type="hidden" class="zyActionRequired" id="infoImageChanPin">
             </div>
             <label style="margin-left: 40px" class="zyFormLabel zyFormLabelHasSub">特征线图像<br>&nbsp;&nbsp;&nbsp;&nbsp;(svg)</label>
             <div class="zyImageUpload">
                 <img src="/images/upload.png">
-                <input type="file">
+                <input type="file" name="infoImage">
                 <input type="hidden" id="infoImageXianXin">
             </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="zySelect zyNoSelect ">
                 <span class="zySShow"></span>
                 <span class="zySName">主色：</span>
-                <select class="zySSelect zyActionRequired">
+                <select class="zySSelect zyActionRequired" id="infoMainColor">
                     <option value="">主色</option>
                     <option value="red">red</option>
                     <option value="blue">blue</option>
@@ -75,7 +75,7 @@
             <div class="zySelect zyNoSelect ">
                 <span class="zySShow"></span>
                 <span class="zySName">辅色1：</span>
-                <select class="zySSelect zyActionRequired">
+                <select class="zySSelect zyActionRequired" id="infoAssistColor1">
                     <option value="">辅色1</option>
                     <option value="red">red</option>
                     <option value="blue">blue</option>
@@ -85,7 +85,7 @@
             <div class="zySelect zyNoSelect">
                 <span class="zySShow"></span>
                 <span class="zySName">辅色2：</span>
-                <select class="zySSelect zyActionRequired">
+                <select class="zySSelect zyActionRequired" id="infoAssistColor2">
                     <option value="">辅色2</option>
                     <option value="red">red</option>
                     <option value="blue">blue</option>
@@ -96,26 +96,26 @@
 
     <div class="row">
         <label class="zyFormLabel zyRequired">风格：</label>
-        <input type="text" class="zyInput">
-        <button class="btn waves-effect waves-light">添加
+        <input type="text" class="zyInput" id="infoStyleInput">
+        <button class="btn waves-effect waves-light" id="infoAddStyle">添加
             <i class="material-icons left">add</i>
         </button>
 
         <div id="infoStyle" class="zyFormChildCtrl zyActionRequired zyActionHidden" style="margin-left: 80px">
-            <div class="chip">
+            <!--<div class="chip">
                 简单
                 <i class="close material-icons">close</i>
-                <input type="hidden" value="简单">
-            </div>
+                <input type="hidden" value="简单" name="infoStyle">
+            </div>-->
         </div>
     </div>
     <div class="row">
         <label class="zyFormLabel zyRequired">模型：</label>
         <div class="btn">
             <span>上传FBX</span>
-            <input type="file" id="uploadFile">
+            <input type="file" id="uploadModal">
         </div>
-        <span style="margin-left: 20px;">xxxx.fbx</span>
-        <input type="hidden" class="zyActionRequired" value="xxx.fbx">
+        <span style="margin-left: 20px;" id="infoModalShow"></span>
+        <input type="hidden" class="zyActionRequired" id="infoModal" value="">
     </div>
 </div>
