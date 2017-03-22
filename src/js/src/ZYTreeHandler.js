@@ -95,19 +95,19 @@ ZYTreeHandler.prototype.add = function (treeNode) {
     var node={
         id: parseInt(this.data[this.data.length-1].id)+1,
         pId: treeNode.id,
+        isLeaf:true,
         name: this.newDefaultName + no
     };
+
+    var index=config.findInArray(this.data,"id",treeNode.id);
+    this.data[index].isParent=true;
+    delete this.data[index].isLeaf;
 
     this.data.push(node);
 
     localStorage.setItem(this.keyName,JSON.stringify(this.data));
     Materialize.toast(config.messages.optSuccess, 4000);
 
-    node.isParent=true;
-
     zTree.expandNode(treeNode);
     zTree.addNodes(treeNode, node);
-    /*if (treeNode.check_Child_State != -1) {
-        zTree.expandNode(treeNode);
-    }*/
 };

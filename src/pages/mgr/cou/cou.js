@@ -102,21 +102,24 @@ var cou=(function(config){
             }));
         },
         initInfoChildTable:function(tableTbody){
-            var categories=JSON.parse(localStorage.getItem("category")),
-                arr=[],parent;
-            for(var i=0,len=categories.length;i<len;i++){
-                if(categories[i].isLeaf){
-                    arr.push(categories[i]);
-                    parent=categories[config.findInArray(categories,"id",categories[i].pId)];
-                    this.componentInfo.push({
-                        id:"iC"+i,
-                        image:{},
-                        name:parent.name+"/"+categories[i].name,
-                        texture:[],
-                        color:[],
-                        hasBiaoZhi:"无",
-                        infoFull:0
-                    });
+
+            if(this.componentInfo.length==0){
+                var categories=JSON.parse(localStorage.getItem("category")),
+                    arr=[],parent;
+                for(var i=0,len=categories.length;i<len;i++){
+                    if(categories[i].isLeaf){
+                        arr.push(categories[i]);
+                        parent=categories[config.findInArray(categories,"id",categories[i].pId)];
+                        this.componentInfo.push({
+                            id:"iC"+i,
+                            image:{},
+                            name:parent.name+"/"+categories[i].name,
+                            texture:[],
+                            color:[],
+                            hasBiaoZhi:"无",
+                            infoFull:0
+                        });
+                    }
                 }
             }
 
@@ -221,18 +224,55 @@ var cou=(function(config){
             return data;
             
         },
+        initCtrlData:function(){
+            var list=JSON.parse(localStorage.getItem("mgr")),
+                index=config.findInArray(list,"id",this.editId),
+                data=list[index];
+
+            this.componentInfo=data.componentInfo;
+            $("#infoCategory").val(data.category);
+            $("input[name='infoMarketType']").val(data.marketType);
+            $("#infoMarketDate").val(data.marketDate);
+            $("#infoBrand").val(data.brand);
+            $("#infoImageChanPin").val(data.imageChanPin).parent().find("img").attr("src",data.imageChanPin);
+            $("#infoImageXianXin").val(data.imageXianXin).parent().find("img").attr("src",data.imageXianXin);
+            $("#infoMainColor").val(data.color[0]).parent().removeClass("zyNoSelect").find(".zySShow").css("background",data.color[0]);
+            $("#infoAssistColor1").val(data.color[1]).parent().removeClass("zyNoSelect").find(".zySShow").css("background",data.color[1]);
+            $("#infoAssistColor2").val(data.color[2]).parent().removeClass("zyNoSelect").find(".zySShow").css("background",data.color[2]);
+            $("#infoTexture input[type='checkbox']").each(function(index,el){
+                el=$(el);
+                if(data.texture.indexOf(el.val())!=-1){
+                    el.prop("checked",true);
+                }
+            });
+            $("#infoStyle").html(juicer(config.styleAllTpl,{
+                items:data.style
+            }));
+
+            $("#infoModal").val(data.modal).prev().text(data.modal);
+
+        },
         initData:function(){
             $("#infoCategory").html(ZYCtrlDataHandler.getCategoryFirstLevelItems("option"));
             $("#infoBrand").html(ZYCtrlDataHandler.getBrandItems("option"));
             $("#infoTexture").html(ZYCtrlDataHandler.getTextureItems());
+            $("#infoMainColor").append(ZYCtrlDataHandler.getColorItems("option"));
+            $("#infoAssistColor1").append(ZYCtrlDataHandler.getColorItems("option"));
+            $("#infoAssistColor2").append(ZYCtrlDataHandler.getColorItems("option"));
             $("#iCAddTexture").html(ZYCtrlDataHandler.getTextureItems("iCAdd"));
             $(".zyActionCategory").html(ZYCtrlDataHandler.getCategoryTreeItems()).material_select();
-            this.initInfoChildTable($("#infoChildTable tbody"));
 
             if(location.search){
                 this.editId=location.search.substr(1);
-                $("#remove").removeClass("hide");
+                this.initCtrlData();
+                $("#removeBtn").removeClass("hide");
+                $("#saveBtn").removeClass("hide");
+                $("#previewBtn").removeClass("hide");
             }
+
+
+            $("#iCAddColor").append(ZYCtrlDataHandler.getColorItems("option"));
+            this.initInfoChildTable($("#infoChildTable tbody"));
         }
     }
 })(config,ZYCtrlDataHandler);
@@ -249,6 +289,9 @@ $(document).ready(function(){
             if(!cou.validInfo($("#info"))){
                 return false;
             }
+
+            $("#previewBtn").removeClass("hide");
+            $("#saveBtn").removeClass("hide");
         }
     });
     $("input[name='infoImage']").change(function(){
@@ -274,6 +317,9 @@ $(document).ready(function(){
 
             $("#infoStyleInput").val("");
         }
+    });
+    $("#infoStyle").on("click",".close",function(){
+        $(this).parent().remove();
     });
 
     /**********************************分结构信息*******************************/
@@ -357,7 +403,7 @@ $(document).ready(function(){
     $("#pInfoChildTableSearch").change(function(){
         cou.filterInfoChildTable($(this).val(),$("#pInfoChildTable tbody"));
     });
-    $("#save").click(function(){
+    $("#saveBtn").click(function(){
         if(!cou.submitData){
             cou.getSubmitData();
         }
@@ -365,7 +411,7 @@ $(document).ready(function(){
         formHandler.submitForm(cou.submitData,cou.editId?cou.editId:undefined);
 
     });
-    $("#remove").click(function(){
+    $("#removeBtn").click(function(){
         formHandler.remove(cou.editId);
     });
 

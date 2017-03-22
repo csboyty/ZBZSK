@@ -84,6 +84,20 @@ var ZYCtrlDataHandler={
 
         return string;
     },
+    getColorItems:function(type,idFlag){
+        var list=JSON.parse(localStorage.getItem("color")),
+        string;
+        idFlag=idFlag||"";
+
+        if(type=="option"){
+            string=juicer(config.colorAllOptionTpl,{
+                idFlag:idFlag,
+                items:list
+            });
+        }
+
+        return string;
+    },
     computeImageCss:function(showWidth,customData){
         var rw=showWidth/customData.w,ry=showWidth/customData.h,
             realW=rw*customData.boundW,realH=rw*customData.boundH,

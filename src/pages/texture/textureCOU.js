@@ -2,7 +2,7 @@ $(document).ready(function(){
     var editId;
     if(location.search){
         editId=location.search.substr(1);
-        var data=JSON.parse(localStorage.getItem("brand"));
+        var data=JSON.parse(localStorage.getItem("texture"));
         data=data[config.findInArray(data,"id",editId)];
 
         $("#name").val(data.name);

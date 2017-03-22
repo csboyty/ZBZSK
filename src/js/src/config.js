@@ -77,13 +77,18 @@ var config={
         imageSizeError:"图片大小不符合！",
         pleaseFillRequired:"请填写所有的必要字段！"
     },
-    colorItemTpl:[
+    colorItemsTpl:[
         '{@each items as item}',
         '<div class="zyColorItem">',
-        '<span class="zyColorShow" style="background:${item}"></span>',
+        '<span class="zyColorShow" style="background:$${item}"></span>',
         '</div>',
         '{@/each}'
-    ].join(""),
+    ].join(''),
+    colorAllOptionTpl:[
+        '{@each items as item}',
+        '<option value="$${item.value}">${item.name}</option>',
+        '{@/each}'
+    ].join(''),
     infoChildTrsTpl:[
         '{@each items as item,index}',
         '<tr>',
@@ -149,7 +154,7 @@ var config={
     textureAllCheckboxTpl:[
         '{@each items as item,index}',
         '<input class="filled-in" name="texture" value="${item.name}" ',
-        'type="checkbox" id="texture{idFlag}${index}"  />',
+        'type="checkbox" id="texture${idFlag}${index}"  />',
         '<label for="texture{idFlag}${index}" style="margin-right: 10px;">${item.name}</label>',
         '{@/each}'
     ].join(''),
@@ -176,7 +181,7 @@ var config={
     ].join(''),
     initData:{
         brand:[
-            {id:0, image:"/data/brand.png", name:"Edinburgh","opt":""}
+            {id:0, image:"/data/brand.png", name:"中联","opt":""}
         ],
         color:[
             {id:0,value:"red",name:"红色",opt:""}
@@ -188,7 +193,6 @@ var config={
         category:[
             { id:"00", pId:0, name:"汽车类别", open:true,isParent:true},
             { id:1, pId:"00", name:"起重机",isParent:true},
-            { id:2, pId:"00", name:"吊车",isParent:true},
             { id:3, pId:1, name:"上车",isParent:true},
             { id:4, pId:1, name:"下车",isParent:true},
             { id:5, pId:3, name:"驾驶室",isLeaf:true},

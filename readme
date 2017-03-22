@@ -1,0 +1,16 @@
+在此文件夹下按住shift然后鼠标右键，选择“在此处打开命令窗口”（windows),mac请自行进入cmd，然后cd到此目录
+
+进入目录后，输入以下命令
+fis3 server open  打开server所在目录
+fis3 server start 打开server，此时会自动弹开浏览器
+fis3 release -w   编译项目，编译完成后，手动刷新下浏览器
+
+
+所有的源代码在src中，公共的css和js在src/css/src,src/js/src下
+
+pages里面是每个页面的html、css、js文件
+
+html中有zyAction开头的class，请勿动请勿动请勿动
+
+
+在fis的开发过程中如果出现错误提示要安装插件，请自行百度安装。

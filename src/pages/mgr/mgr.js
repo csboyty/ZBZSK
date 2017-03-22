@@ -44,6 +44,9 @@ var mgr=(function(config,ZYCtrlDataHandler){
         initData:function(){
             $("#searchBrand").html(ZYCtrlDataHandler.getBrandItems("checkbox"));
             $("#searchTexture").html(ZYCtrlDataHandler.getTextureItems());
+            $("#searchMainColor").append(ZYCtrlDataHandler.getColorItems("option"));
+            $("#searchAssistColor1").append(ZYCtrlDataHandler.getColorItems("option"));
+            $("#searchAssistColor2").append(ZYCtrlDataHandler.getColorItems("option"));
         }
     };
 })(config,ZYCtrlDataHandler);
@@ -98,7 +101,7 @@ $(document).ready(function(){
                     { "mDataProp":"marketDate"},
                     { "mDataProp": "color",
                         "fnRender":function(oObj){
-                            return juicer(config.colorItemTpl,{
+                            return juicer(config.colorItemsTpl,{
                                 items:oObj.aData.color
                             })
                         }},
@@ -117,7 +120,7 @@ $(document).ready(function(){
 
     $("#myTable").on("click","a.remove",function(){
         if(confirm(config.messages.confirmDelete)){
-            table.delete($(this).attr("href"));
+            mgr.table.delete($(this).attr("href"));
         }
         return false;
     })

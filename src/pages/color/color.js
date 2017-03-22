@@ -18,7 +18,7 @@ $(document).ready(function() {
                 aoColumns: [
                     { "mDataProp": "value",
                         "fnRender":function(oObj){
-                            return juicer(config.colorItemTpl,{
+                            return juicer(config.colorItemsTpl,{
                                 items:[oObj.aData.value]
                             });
                         }
