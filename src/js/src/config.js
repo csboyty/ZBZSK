@@ -155,7 +155,7 @@ var config={
         '{@each items as item,index}',
         '<input class="filled-in" name="texture" value="${item.name}" ',
         'type="checkbox" id="texture${idFlag}${index}"  />',
-        '<label for="texture{idFlag}${index}" style="margin-right: 10px;">${item.name}</label>',
+        '<label for="texture${idFlag}${index}" style="margin-right: 10px;">${item.name}</label>',
         '{@/each}'
     ].join(''),
     styleAllTpl:[
