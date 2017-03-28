@@ -10,6 +10,7 @@ body{
 }
 a{
     text-decoration: none;
+    
 }
 h1,h2,h3,h4,h5,h6{
     margin: 0px;
@@ -184,6 +185,7 @@ li{
     left:0;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 .zyForm .zyImageUpload img{
     display: block;
@@ -193,6 +195,7 @@ li{
 
 /*************************************select****************************/
 .zySelect{
+    border-radius:3px;
     border: 1px solid #ccc;
     padding: 3px;
     background: #eee;
@@ -233,7 +236,7 @@ li{
 /*******************************collaspe*********************/
 .zyCollapseCtrl{
     margin-bottom: 100px;
-    height: 3px;
+    height: 0px;
     border: 1px solid #ddd;
     position: relative;
     background: #ccc;
@@ -246,11 +249,15 @@ li{
     border:#ccc solid 1px;
     position: absolute;
     bottom:-40px;
-    background: #eee;
+    background: #ffffff;
     left: 50%;
     transform: translateX(-50%);
     letter-spacing: .3em;
     cursor: pointer;
+    border-radius: 3px;
+}
+.zyCollapseCtrl .zyCollapse:hover{
+    background: #eee;
 }
 .zyCollapseCtrl .zyCollapse .material-icons{
     line-height: 40px;
@@ -266,6 +273,7 @@ li{
     padding: 8px 0px 8px 30px;
     height: 40px;
     box-sizing: border-box;
+    font-size: 16px;
 }
 .zyPanel .zyPanelTitle .btn{
     margin: 0px 10px;
@@ -374,7 +382,11 @@ table.dataTable .thumb{
 /*********************************覆写material***********************/
 .btn{
     box-shadow: none ;
-    background-color: #ae4127 ;
+    background-color: #af4127 ;
+    transition: 0.1s;
+}
+.btn:hover{
+    background-color: #9e2e1b ;
 }
 .red{
     background: #ae4127 !important;
@@ -388,6 +400,8 @@ table.dataTable .thumb{
     background-color: #ae4127;
 }
 input.zyInput,select.zyInput{
+    color: #727171;
+    border-radius: 3px;
     border: 1px solid #ccc;
     display: inline-block;
     height: 36px;
@@ -465,6 +479,31 @@ textarea.zyTextarea{
 }
 .select-wrapper select.zyInput{
     display: none;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after{
+    border: 2px solid #af4127;
+}
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after{
+    background-color: #af4127;
+}
+.row .col{
+    padding: 0rem;
+    margin-right: 20px;
+}
+.line{
+    width:10px;
+    height:1px;
+    margin:0px auto;
+    padding:0px;
+    background-color:#ccc;
+    overflow:hidden;
+    display: inline-block;
+}
+.grey.lighten-2{
+    background-color: white !important;
+    border: 1px solid #ccc;
+    margin-left: 8px;
 }
 /******************************************crop-holder*************************/
 .jcrop-holder{

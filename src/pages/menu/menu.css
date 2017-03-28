@@ -12,7 +12,6 @@
 .menu .item .link{
     font-size: 16px;
     line-height: 40px;
-    font-weight: bold;
     color: #727171;
     display: block;
     padding-left: 5px;
@@ -37,14 +36,16 @@
     border-top: 1px solid #ddd;
 }
 .menu .subMenu .sItem .sLink{
-    font-size: 12px;
-    color: #727171;
+    font-size: 14px;
+    color: #808080;
     display: block;
     padding-left: 40px;
     height: 35px;
     line-height: 35px;
     position: relative;
-    font-weight: bold;
+}
+.menu .subMenu .sItem .sLink:hover{
+    background-color: #eee;
 }
 .menu .subMenu .sItem .sLink:hover,.menu .subMenu .sItem .sLink.active{
     color: #ae4127;
