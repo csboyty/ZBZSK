@@ -1,15 +1,17 @@
 .zySearch{
-    padding: 8px 0px 8px 30px;
+    padding: 6px 0px 8px 30px;
 }
 .zySearchRow{
-    margin: 20px 0px;
-    padding-right: 100px;
+    margin-top: 0px;
+    margin-bottom: 6px;
+    padding-right: 40px;
+    clear: both;
 }
-.zySearchRow .zySearchTitle{
+.zySearchRow .zySearchTitle,.zySearchRow .zySearchTitle2{
     margin:0px 0px 10px 6px;
-    display: block;
+    display: inline-block;
     font-size: 14px;
 }
 .zySearchRow .zySearchContent{
-
+    margin-bottom: 6px;
 }

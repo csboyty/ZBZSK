@@ -167,6 +167,7 @@ li{
     width: 100%;
     height: 100%;
     opacity: 0;
+    cursor:pointer;
 }
 .zyForm .zyFormChildCtrl{
     margin-left: 50px;
@@ -201,6 +202,7 @@ li{
     background: #eee;
     line-height: 30px;
     display: inline-block;
+    cursor: pointer;
 }
 .zySelect .zySShow{
     width: 50px;
@@ -214,6 +216,7 @@ li{
     vertical-align: top;
 }
 .zySelect .zySSelect{
+    cursor:pointer;
     width: 100px;
     display: inline-block;
     background: none;
@@ -229,6 +232,7 @@ li{
 }
 .zySelect.zyNoSelect .zySSelect{
     width: 198px;
+    cursor:pointer;
 }
 .zySelect .zySSelect:focus{
     outline: none;
@@ -341,10 +345,12 @@ table.dataTable .thumb{
     left:0;
     height:40px;
     line-height: 40px;
+    margin-left: 36px;
 }
 .paging_full_numbers{
     height: 40px;
     line-height: 1;
+    margin-right: 50px;
 }
 .paging_full_numbers a.paginate_button, .paging_full_numbers a.paginate_active{
     height:40px;
@@ -384,6 +390,7 @@ table.dataTable .thumb{
     box-shadow: none ;
     background-color: #af4127 ;
     transition: 0.1s;
+    float: right;
 }
 .btn:hover{
     background-color: #9e2e1b ;
@@ -400,6 +407,7 @@ table.dataTable .thumb{
     background-color: #ae4127;
 }
 input.zyInput,select.zyInput{
+    cursor:pointer;
     color: #727171;
     border-radius: 3px;
     border: 1px solid #ccc;
@@ -426,7 +434,7 @@ textarea.zyTextarea{
 .modal{
     border-radius: 0px;
     max-height: 80%;
-    width: 60%;
+    width: 70%;
 }
 .modal .modal-header{
     text-align: center;
@@ -441,14 +449,15 @@ textarea.zyTextarea{
 }
 .zyModal{
     overflow-y: hidden;
-    height: 500px;
+    height: 650px;
     max-height: 100%;
+    top:6% !important;
 }
 .zyModal .modal-content{
-    height: 400px;
+    height: 550px;
 }
 .zyModal .zyTabPanel{
-    height:320px;
+    height:450px;
     overflow-y:auto;
     overflow-x:hidden;
 }
@@ -465,6 +474,7 @@ textarea.zyTextarea{
     right:5px;
 }
 .select-wrapper input.select-dropdown{
+    border-radius: 3px;
     border: 1px solid #ccc;
     height: 36px;
     line-height: 36px;
@@ -481,6 +491,55 @@ textarea.zyTextarea{
     display: none;
 }
 
+
+
+
+
+
+/*筛选*/
+.zySearchContent{
+    display: inline-block;
+}
+.zySearchTitle{
+    position: relative;
+    top:8px;
+    padding-right: 6px;
+}
+.zySearchTitle2{
+    position: relative;
+    top:-6px;
+    padding-right: 6px;
+}
+.zySearchContent row{
+    position: relative;
+    top: 14px;
+}
+/*首页分割线*/
+hr{
+    margin:0px;
+    height:1px;
+    width: 100%;
+    border:0px;
+    background-color:#D5D5D5;
+    color:#D5D5D5;
+}
+i.right{
+    float: right !important;
+}
+.right{
+    margin-bottom: 6px;
+    float: left !important;
+}
+img{
+    cursor: pointer;
+}
+.dropdown-content li>a, .dropdown-content li>span{
+    color: #4d4d4d;
+    font-size:14px;
+}
+.chip{
+        border-radius: 3px;
+}
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after{
     border: 2px solid #af4127;
 }

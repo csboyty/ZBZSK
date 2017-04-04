@@ -24,6 +24,7 @@
 .menu .item .link:hover,.menu .item .link.active{
     background: #ffffff;
     color: #ae4127;
+    cursor: pointer;
 }
 .menu .item .link.active+.subMenu{
     display: block;
