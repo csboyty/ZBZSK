@@ -92,10 +92,11 @@ li{
     margin:0px 5px;
 }
 .zyColorItem .zyColorShow{
-    height: 40px;
+    height: 20px;
     display: inline-block;
     width: 60px;
-    vertical-align: top;
+    vertical-align: middle;
+    border-radius: 3px;
 }
 .zyColorItem .zyColorName{
     font-size: 14px;
@@ -107,8 +108,8 @@ li{
 .zyForm{
     padding: 20px 30px!important;
 }
-.zyForm .row{
-
+.zyForm >.row{
+    border-bottom: 1px #eee solid;
 }
 .zyForm .zyFormLabel{
     text-align: left;
@@ -116,13 +117,14 @@ li{
     height: 40px;
     font-size: 14px;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     position: relative;
     margin-right: 20px;
 }
 .zyForm .zyTARLabel{
     width: 80px;
-    text-align: right;
+    text-align: left;
+    vertical-align: top;
 }
 .zyForm .zyFormLabel.zyRequired{
 
@@ -138,15 +140,15 @@ li{
 }
 .zyForm .zyFormLabelHasSub{
     height: 14px;
-    line-height: 14px;
+    line-height: 40px;
 }
 .zyForm .zyFormLabelHasSub.zyRequired:before{
     line-height: 18px;
 }
 .zyForm .zyFormAllInlineCtrl{
     display: inline-block;
-    line-height: 40px;
-    height: 40px;
+    line-height: 50px;
+    height: 30px;
 }
 .zyForm .zyFormSubmitRow{
     padding-left: 65px;
@@ -171,7 +173,7 @@ li{
 }
 .zyForm .zyFormChildCtrl{
     margin-left: 50px;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 .zyForm .zyImageUpload{
     display: inline-block;
@@ -420,7 +422,7 @@ input.zyInput,select.zyInput{
     line-height: 36px;
     box-sizing: border-box;
     margin: 0px;
-    vertical-align: top;
+    vertical-align: middle;
     padding-left: 5px;
     background: #eee;
 }
@@ -510,6 +512,11 @@ textarea.zyTextarea{
 }
 
 
+/*预览页面*/
+.row{
+    line-height: 50px;
+    margin-bottom: 0px;
+}
 /*标签页*/
 .tabs .indicator{
     height: 4px;
@@ -541,6 +548,7 @@ hr{
     float: right !important;
     position: relative;
     top: -6px;
+    right: 20px;
 }
 img{
     cursor: pointer;
@@ -560,7 +568,7 @@ img{
 }
 .row .col{
     padding: 0rem;
-    margin-right: 20px;
+    margin-right: 0px;
 }
 .line{
     width:10px;
