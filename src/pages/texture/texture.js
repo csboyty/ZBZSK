@@ -16,7 +16,13 @@ $(document).ready(function() {
                 },
                 aaData: data,
                 aoColumns: [
+                    { "mDataProp": "image",
+                        "fnRender":function(oObj){
+                            return  "<img src='"+oObj.aData.image+"'>";
+                        }
+                    },
                     { "mDataProp": "name"},
+                    { "mDataProp": "description"},
                     { "mDataProp": "opt",
                         "fnRender":function(oObj){
                             return  '<a href="/pages/texture/textureCOU?'+oObj.aData.id+'">编辑</a>&nbsp;&nbsp;'+

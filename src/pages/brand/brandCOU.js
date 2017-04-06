@@ -6,6 +6,7 @@ $(document).ready(function(){
         data=data[config.findInArray(data,"id",editId)];
 
         $("#name").val(data.name);
+        $("#description").val(data.description);
         $("#image").val(data.image);
         $("#imageShow").attr("src",data.image);
     }

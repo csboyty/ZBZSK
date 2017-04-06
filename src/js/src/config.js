@@ -181,14 +181,17 @@ var config={
     ].join(''),
     initData:{
         brand:[
-            {id:0, image:"/data/brand.png", name:"中联","opt":""}
+            {id:0, image:"/data/brand.png", name:"中联",
+                description:"中联是湖南省的著名企业，专注于工程机械","opt":""}
         ],
         color:[
             {id:0,value:"red",name:"红色",opt:""}
         ],
         texture:[
-            { id:0, name:"亚光", opt:""},
-            { id:0, name:"亮光", opt:""}
+            { id:0, name:"亚光", image:"/data/texture.png",
+                description:"亚光亚光亚光亚光亚光亚光",opt:""},
+            { id:0, name:"亮光", image:"/data/texture.png",
+                description:"亮光亮光亮光亮光亮光亮光亮光",opt:""}
         ],
         category:[
             { id:"00", pId:0, name:"结构类别", open:true, isParent:true},
