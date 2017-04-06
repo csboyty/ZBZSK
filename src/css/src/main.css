@@ -157,6 +157,9 @@ li{
     line-height: 40px;
     height: 40px;
 }
+.zyForm .zyTextarea{
+    width: 70%;
+}
 .zyForm .btn{
     position: relative;
 }
