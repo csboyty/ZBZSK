@@ -1,15 +1,30 @@
 .zySearch{
-    padding: 8px 0px 8px 30px;
+    padding: 6px 0px 8px 30px;
 }
 .zySearchRow{
-    margin: 20px 0px;
-    padding-right: 100px;
+    margin-top: 0px;
+    padding: 8px 40px 8px 0;
+    clear: both;
+    border-bottom: 1px #eee solid;
+    min-height: 40px;
+    box-sizing: content-box;
+}
+.zySearchRow .right{
+    float: none !important;
 }
 .zySearchRow .zySearchTitle{
-    margin:0px 0px 10px 6px;
-    display: block;
+    margin:0px 0px 0px 6px;
+    display: inline-block;
     font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: top;
+    min-width: 70px;
 }
 .zySearchRow .zySearchContent{
-
+    min-height: 40px;
+    line-height: 40px;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
 }

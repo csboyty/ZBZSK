@@ -43,7 +43,7 @@ var cou=(function(config,ZYCtrlDataHandler){
                     me.cutCtrl.customData.h=c.h;
                     me.cutCtrl.customData.src=$('#toCutImage').attr("src");
                 },
-                aspectRatio: 1
+                aspectRatio: 0
             },function(){
                 me.cutCtrl=this;
                 var bounds=this.getBounds();

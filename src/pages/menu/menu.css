@@ -21,9 +21,17 @@
     vertical-align: top;
     margin-right: 5px;
 }
+.material-icons right2{
+    line-height: 40px;
+    vertical-align: top;
+    margin-right: 5px;
+    transform:rotate(90deg);
+}
+
 .menu .item .link:hover,.menu .item .link.active{
     background: #ffffff;
     color: #ae4127;
+    cursor: pointer;
 }
 .menu .item .link.active+.subMenu{
     display: block;
