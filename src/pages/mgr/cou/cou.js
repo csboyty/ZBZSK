@@ -1,8 +1,29 @@
-var cou=(function(config){
+var cou=(function(config,ZYCtrlDataHandler){
 
     return {
         cutCtrl:null,
         componentInfo:[],
+        changeMainBtnStatus:function(showSave){
+
+            if(showSave){
+                //显示保存按钮，隐藏infoChild页面的保存和取消
+                $("#saveBtn").removeClass("hide");
+                $("#previewBtn").removeClass("hide");
+                if(location.search){
+                    $("#removeBtn").removeClass("hide");
+                }
+
+                $("#infoChildSave").addClass("hide");
+                $("#infoChildCancel").addClass("hide");
+            }else{
+                $("#saveBtn").addClass("hide");
+                $("#previewBtn").addClass("hide");
+                $("#removeBtn").addClass("hide");
+
+                $("#infoChildSave").removeClass("hide");
+                $("#infoChildCancel").removeClass("hide");
+            }
+        },
         initJCrop:function(){
             var me=this;
 
@@ -13,15 +34,16 @@ var cou=(function(config){
             $('#toCutImage').Jcrop({
                 boxWidth:600,
                 boxHeight:600,
+                bgColor:"#fff",
                 onSelect: function(c){
                     me.cutCtrl.customData.x=c.x/me.cutCtrl.customData.boundW;
                     me.cutCtrl.customData.y=c.y/me.cutCtrl.customData.boundH;
-                    me.cutCtrl.customData.ratio=1;
+                    me.cutCtrl.customData.ratio=c.w / c.h;
                     me.cutCtrl.customData.w=c.w;
                     me.cutCtrl.customData.h=c.h;
                     me.cutCtrl.customData.src=$('#toCutImage').attr("src");
                 },
-                aspectRatio: 1
+                aspectRatio: 0
             },function(){
                 me.cutCtrl=this;
                 var bounds=this.getBounds();
@@ -35,9 +57,8 @@ var cou=(function(config){
             var cutImage=$("#cutImage");
             var cssObj=ZYCtrlDataHandler.computeImageCss(100,customData);
 
-
-
             cutImage.attr("src",customData.src);
+            cutImage.parent().css("width",cssObj.showWidth);
             cutImage.css({
                 width:cssObj.realW,
                 height:cssObj.realH,
@@ -181,6 +202,8 @@ var cou=(function(config){
                 }
             });
             $("#iCAddAppraise").val(component.appraise);
+            $("#iCAddTitle").text(component.name);
+            $("#cutImageTitle").text("图像裁剪----"+component.name);
             if(component.image.customData){
                 this.updateCutImage(component.image.customData);
                 this.cutCtrl.customData=component.image.customData;
@@ -190,11 +213,18 @@ var cou=(function(config){
             $("#infoChildMgr").removeClass("hide");
             $("#infoChildAdd").addClass("hide");
 
+            //此时显示保存和预览
+            this.changeMainBtnStatus(true);
+
             this.clearICAdd();
         },
         hideInfoChildMgr:function(){
             $("#infoChildMgr").addClass("hide");
             $("#infoChildAdd").removeClass("hide");
+
+            //此时不显示保存和预览
+            this.changeMainBtnStatus(false);
+
 
             this.initICAdd();
         },
@@ -266,8 +296,6 @@ var cou=(function(config){
                 this.editId=location.search.substr(1);
                 this.initCtrlData();
                 $("#removeBtn").removeClass("hide");
-                $("#saveBtn").removeClass("hide");
-                $("#previewBtn").removeClass("hide");
             }
 
 
@@ -290,9 +318,11 @@ $(document).ready(function(){
                 return false;
             }
 
-            $("#previewBtn").removeClass("hide");
-            $("#saveBtn").removeClass("hide");
+        }else{
+            cou.showInfoChildMgr();
         }
+
+        cou.changeMainBtnStatus(true);
     });
     $("input[name='infoImage']").change(function(){
         var name=this.files[0].name,
@@ -332,8 +362,8 @@ $(document).ready(function(){
     $("#infoChildSearch").change(function(){
         cou.filterInfoChildTable($(this).val(),$("#infoChildTable tbody"));
     });
-    $('#cutImageModal').modal();
 
+    $('#cutImageModal').modal();
     $("#cutImageType").on("click",".zyGBItem",function(){
         var type=$(this).data("type"),
             xianXinSrc=$("#infoImageXianXin").val(),

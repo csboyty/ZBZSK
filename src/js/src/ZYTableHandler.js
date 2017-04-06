@@ -70,6 +70,11 @@ ZYTableHandler.prototype.tableSearch=function(params){
     this.ownTable.fnAddData(arr);
 };
 ZYTableHandler.prototype.delete = function (id) {
+
+    if(!confirm(config.messages.confirmDelete)){
+        return ;
+    }
+
     var index=config.findInArray(this.data,"id",id);
 
     if(index!=-1){

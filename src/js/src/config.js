@@ -116,7 +116,7 @@ var config={
         '</tr>'
     ].join(''),
     categoryAllOptionTpl:[
-        '<option value="">产品类别</option>',
+        '<option value="">请选择产品类别</option>',
         '{@each items as item,index}',
         '<option value="${item.name}">${item.name}</option>',
         '{@/each}'
@@ -139,7 +139,7 @@ var config={
         '{@/each}'
     ].join(''),
     brandAllOptionTpl:[
-        '<option value="">品牌</option>',
+        '<option value="">请选择品牌</option>',
         '{@each items as item,index}',
         '<option value="${item.name}" data-value="${item.image}">${item.name}</option>',
         '{@/each}'
@@ -175,23 +175,26 @@ var config={
         '</div>'
     ].join(''),
     cutImageTpl:[
-        '<div style="width:${sizeW}px;height:${sizeW}px;overflow: hidden;display: inline-block">',
+        '<div style="width:${showWidth}px;height:${showHeight}px;overflow: hidden;display: inline-block">',
             '<img src="${src}" style="width:${realW}px;height: ${realH}px;margin-left: ${marginL}px;margin-top: ${marginT}px">',
         '</div>'
     ].join(''),
     initData:{
         brand:[
-            {id:0, image:"/data/brand.png", name:"中联","opt":""}
+            {id:0, image:"/data/brand.png", name:"中联",
+                description:"中联是湖南省的著名企业，专注于工程机械","opt":""}
         ],
         color:[
             {id:0,value:"red",name:"红色",opt:""}
         ],
         texture:[
-            { id:0, name:"亚光", opt:""},
-            { id:0, name:"亮光", opt:""}
+            { id:0, name:"亚光", image:"/data/texture.png",
+                description:"亚光亚光亚光亚光亚光亚光",opt:""},
+            { id:0, name:"亮光", image:"/data/texture.png",
+                description:"亮光亮光亮光亮光亮光亮光亮光",opt:""}
         ],
         category:[
-            { id:"00", pId:0, name:"汽车类别", open:true,isParent:true},
+            { id:"00", pId:0, name:"结构类别", open:true, isParent:true},
             { id:1, pId:"00", name:"起重机",isParent:true},
             { id:3, pId:1, name:"上车",isParent:true},
             { id:4, pId:1, name:"下车",isParent:true},

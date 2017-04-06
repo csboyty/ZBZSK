@@ -18,10 +18,11 @@ $(document).ready(function() {
                 aoColumns: [
                     { "mDataProp": "image",
                         "fnRender":function(oObj){
-                            return  "<img class='thumb' src='"+oObj.aData.image+"'>";
+                            return  "<img src='"+oObj.aData.image+"'>";
                         }
                     },
                     { "mDataProp": "name"},
+                    { "mDataProp": "description"},
                     { "mDataProp": "opt",
                         "fnRender":function(oObj){
                             return  '<a href="/pages/brand/brandCOU.html?'+oObj.aData.id+'">编辑</a>&nbsp;&nbsp;'+
@@ -36,9 +37,7 @@ $(document).ready(function() {
     });
 
     $("#myTable").on("click","a.remove",function(){
-        if(confirm(config.messages.confirmDelete)){
-            table.delete($(this).attr("href"));
-        }
+        table.delete($(this).attr("href"));
         return false;
     })
 

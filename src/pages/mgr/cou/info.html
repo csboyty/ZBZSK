@@ -2,7 +2,7 @@
     <div class="row">
         <label class="zyFormLabel zyRequired">产品类别：</label>
         <select class="zyInput zyActionRequired" id="infoCategory">
-            <option value="">产品类别</option>
+            <option value="">请选择产品类别</option>
         </select>
     </div>
     <div class="row">
@@ -26,7 +26,7 @@
         <div class="zySelect zySelectHasImg zyNoSelect ">
             <img class="zySShow">
             <select class="zySSelect zyActionRequired" id="infoBrand">
-                <option value="">品牌</option>
+                <option value="">请选择品牌</option>
             </select>
         </div>
 
@@ -104,12 +104,12 @@
         </div>
     </div>
     <div class="row">
-        <label class="zyFormLabel zyRequired">模型：</label>
+        <label class="zyFormLabel">模型：</label>
         <div class="btn">
             <span>上传FBX</span>
             <input type="file" id="uploadModal">
         </div>
         <span style="margin-left: 20px;" id="infoModalShow"></span>
-        <div class="fbx"><input  type="hidden" class="zyActionRequired" id="infoModal" value=""></div>
+        <input type="hidden" id="infoModal" value="">
     </div>
 </div>
