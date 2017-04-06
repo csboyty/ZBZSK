@@ -98,24 +98,37 @@ var ZYCtrlDataHandler={
 
         return string;
     },
-    computeImageCss:function(showWidth,customData){
-        var rw=showWidth/customData.w,ry=showWidth/customData.h,
-            realW=rw*customData.boundW,realH=rw*customData.boundH,
+    /**
+     * 计算实际image的尺寸和margin
+     *  customData中x，y记录的是百分比
+     *  boundW,boundH是裁剪时原图的大小
+     *  ratio是裁剪的形状的w和h比值
+     *  原理：固定高度
+     *  当前裁剪框的高度是div的高度，和原始的裁剪高度的比值乘以boundH就是当前image的高度
+     *  宽度的计算原理一样
+     * @param showHeight
+     * @param customData
+     * @returns {{realW: number, realH: number, marginL: number, marginT: number}}
+     */
+    computeImageCss:function(showHeight,customData){
+        var ratio=showHeight/customData.h,
+            realW=ratio*customData.boundW,realH=ratio*customData.boundH,
             marginL=-customData.x*realW,marginT=-customData.y*realH;
 
         return {
+            showHeight:showHeight,
+            showWidth:showHeight*customData.ratio,
             realW:realW,
             realH:realH,
             marginL:marginL,
             marginT:marginT
         }
     },
-    getCutImageEl:function(sizeW,customData){
+    getCutImageEl:function(sizeH,customData){
         var imageCssObj,imageString;
 
-        imageCssObj=this.computeImageCss(sizeW,customData);
+        imageCssObj=this.computeImageCss(sizeH,customData);
         imageCssObj.src=customData.src;
-        imageCssObj.sizeW=sizeW;
         imageString=juicer(config.cutImageTpl,imageCssObj);
 
 

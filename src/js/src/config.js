@@ -116,7 +116,7 @@ var config={
         '</tr>'
     ].join(''),
     categoryAllOptionTpl:[
-        '<option value="">产品类别</option>',
+        '<option value="">请选择产品类别</option>',
         '{@each items as item,index}',
         '<option value="${item.name}">${item.name}</option>',
         '{@/each}'
@@ -139,7 +139,7 @@ var config={
         '{@/each}'
     ].join(''),
     brandAllOptionTpl:[
-        '<option value="">品牌</option>',
+        '<option value="">请选择品牌</option>',
         '{@each items as item,index}',
         '<option value="${item.name}" data-value="${item.image}">${item.name}</option>',
         '{@/each}'
@@ -175,7 +175,7 @@ var config={
         '</div>'
     ].join(''),
     cutImageTpl:[
-        '<div style="width:${sizeW}px;height:${sizeW}px;overflow: hidden;display: inline-block">',
+        '<div style="width:${showWidth}px;height:${showHeight}px;overflow: hidden;display: inline-block">',
             '<img src="${src}" style="width:${realW}px;height: ${realH}px;margin-left: ${marginL}px;margin-top: ${marginT}px">',
         '</div>'
     ].join(''),

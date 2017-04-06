@@ -38,7 +38,7 @@ var cou=(function(config,ZYCtrlDataHandler){
                 onSelect: function(c){
                     me.cutCtrl.customData.x=c.x/me.cutCtrl.customData.boundW;
                     me.cutCtrl.customData.y=c.y/me.cutCtrl.customData.boundH;
-                    me.cutCtrl.customData.ratio=1;
+                    me.cutCtrl.customData.ratio=c.w / c.h;
                     me.cutCtrl.customData.w=c.w;
                     me.cutCtrl.customData.h=c.h;
                     me.cutCtrl.customData.src=$('#toCutImage').attr("src");
@@ -58,6 +58,7 @@ var cou=(function(config,ZYCtrlDataHandler){
             var cssObj=ZYCtrlDataHandler.computeImageCss(100,customData);
 
             cutImage.attr("src",customData.src);
+            cutImage.parent().css("width",cssObj.showWidth);
             cutImage.css({
                 width:cssObj.realW,
                 height:cssObj.realH,
