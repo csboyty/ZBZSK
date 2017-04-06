@@ -36,9 +36,7 @@ $(document).ready(function() {
     });
 
     $("#myTable").on("click","a.remove",function(){
-        if(confirm(config.messages.confirmDelete)){
-            table.delete($(this).attr("href"));
-        }
+        table.delete($(this).attr("href"));
         return false;
     })
 

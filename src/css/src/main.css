@@ -449,8 +449,7 @@ textarea.zyTextarea{
 }
 .zyModal .zyTabPanel{
     height:320px;
-    overflow-y:auto;
-    overflow-x:hidden;
+    overflow:auto;
 }
 .select-wrapper{
     width: 180px;
@@ -476,6 +475,7 @@ textarea.zyTextarea{
 }
 .select-wrapper .dropdown-content{
     max-height: 300px!important;
+    overflow-y:scroll ;
 }
 .select-wrapper select.zyInput{
     display: none;
@@ -488,8 +488,7 @@ textarea.zyTextarea{
     background-color: #af4127;
 }
 .row .col{
-    padding: 0rem;
-    margin-right: 20px;
+    padding-left: 0;
 }
 .line{
     width:10px;

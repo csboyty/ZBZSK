@@ -191,7 +191,7 @@ var config={
             { id:0, name:"亮光", opt:""}
         ],
         category:[
-            { id:"00", pId:0, name:"汽车类别", open:true,isParent:true},
+            { id:"00", pId:0, name:"结构类别", open:true, isParent:true},
             { id:1, pId:"00", name:"起重机",isParent:true},
             { id:3, pId:1, name:"上车",isParent:true},
             { id:4, pId:1, name:"下车",isParent:true},

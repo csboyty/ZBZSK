@@ -38,6 +38,9 @@ ZYFormHandler.prototype.submitForm=function(form,editId){
     Materialize.toast(config.messages.optSuccRedirect, 4000);
 };
 ZYFormHandler.prototype.remove=function(editId){
+    if(!confirm(config.messages.confirmDelete)){
+        return ;
+    }
     var me=this;
     var index=config.findInArray(this.data,"id",editId);
 

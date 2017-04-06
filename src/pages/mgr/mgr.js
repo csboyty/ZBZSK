@@ -119,9 +119,7 @@ $(document).ready(function(){
     });
 
     $("#myTable").on("click","a.remove",function(){
-        if(confirm(config.messages.confirmDelete)){
-            mgr.table.delete($(this).attr("href"));
-        }
+        mgr.table.delete($(this).attr("href"));
         return false;
     })
 });
