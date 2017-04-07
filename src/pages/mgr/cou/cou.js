@@ -411,7 +411,7 @@ $(document).ready(function(){
     /*****************************预览部分************************/
     $("#previewModal").modal();
     $("#previewBtn").click(function(){
-        var submitData=cou.getSubmitData();
+        /*var submitData=cou.getSubmitData();
 
         $("#pInfoCategory").text(submitData.category);
         $("#pInfoType").text(submitData.marketType);
@@ -425,16 +425,16 @@ $(document).ready(function(){
         $("#pInfoStyle").text(submitData.style.join(","));
         $("#pInfoModal").attr("href",submitData.modal).text(submitData.modal);
 
-        cou.setHtmlForInfoChildTable(submitData.componentInfo,$("#pInfoChildTable tbody"));
+        cou.setHtmlForInfoChildTable(submitData.componentInfo,$("#pInfoChildTable tbody"));*/
 
         $("#previewModal").modal("open");
     });
     $("#pChangeImage").change(function(){
-        if($(this).prop("checked")){
+        /*if($(this).prop("checked")){
             $("#pImage").attr("src",cou.submitData.imageXianXin);
         }else{
             $("#pImage").attr("src",cou.submitData.imageChanPin);
-        }
+        }*/
     });
     $("#pInfoChildTableSearch").change(function(){
         cou.filterInfoChildTable($(this).val(),$("#pInfoChildTable tbody"));
