@@ -429,7 +429,7 @@ $(document).ready(function(){
 
         $("#previewModal").modal("open");
     });
-    $("#pChangeImage input[type='checkbox']").change(function(){
+    $("#pChangeImage").change(function(){
         if($(this).prop("checked")){
             $("#pImage").attr("src",cou.submitData.imageXianXin);
         }else{
