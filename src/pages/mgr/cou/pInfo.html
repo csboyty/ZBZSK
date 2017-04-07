@@ -1,71 +1,82 @@
-<div class="zyForm">
-    <div class="row">
-        <label class="zyFormLabel">产品类别:</label>
-        <label class="zyFormLabel" id="pInfoCategory">起重机</label>
-    </div>
-    <div class="row">
-        <label class="zyFormLabel">条目类别:</label>
-        <label class="zyFormLabel" id="pInfoType">上市产品</label>
-    </div>
-    <div class="row">
-        <label class="zyFormLabel">上市日期:</label>
-        <label class="zyFormLabel" id="pInfoMarketDate">2016</label>
-    </div>
-    <div class="row">
-        <label class="zyFormLabel">品牌:</label>
-        <label class="zyFormLabel" id="pInfoBrand">三一</label>
-    </div>
-    <div class="row">
-        <label class="zyFormLabel zyFormLabelHasSub">产品图像<br>&nbsp;&nbsp;&nbsp;&nbsp;(svg)</label>
-        <div class="zyImageUpload">
-            <img src="/images/upload.png" id="pImageChanPin">
-        </div>
-        <label style="margin-left: 40px" class="zyFormLabel zyFormLabelHasSub">特征线图像<br>&nbsp;&nbsp;&nbsp;&nbsp;(svg)</label>
-        <div class="zyImageUpload">
-            <img src="/images/upload.png" id="pImageXianXin">
-        </div>
-    </div>
-    <div class="row">
-        <label class="zyFormLabel">纹理:</label>
-        <label class="zyFormLabel" id="pInfoTexture">亮光、亚光</label>
-    </div>
-    <div class="row">
-        <label class="zyFormLabel">颜色:</label>
-
-        <div class="zyFormAllInlineCtrl row">
-
-            <div class="col">
-                <span class="zySName">主色:</span>
-                <div class="zyColorItem">
-                    <span class="zyColorShow" id="pInfoMainColor" style="background: orange"></span>
-                    <!--<span class="zyColorName">橙色</span>-->
-                </div>
+<div class="row zyForm" style="padding: 10px !important;position: relative">
+    <div class="col s6">
+        <div class="zyBgFFFFFF zyPd10">
+            <div class="row">
+                <label class="zyFormLabel">产品类别:</label>
+                <label class="zyFormLabel" id="pInfoCategory">起重机</label>
             </div>
-
-            <div class="col">
-                <span class="zySName">辅色1:</span>
-                <div class="zyColorItem">
-                    <span class="zyColorShow" id="pInfoAssistColor1" style="background: orange"></span>
-                    <!--<span class="zyColorName">橙色</span>-->
-                </div>
+            <div class="row">
+                <label class="zyFormLabel">条目类别:</label>
+                <label class="zyFormLabel" id="pInfoType">上市产品</label>
             </div>
+            <div class="row">
+                <label class="zyFormLabel">上市日期:</label>
+                <label class="zyFormLabel" id="pInfoMarketDate">2016</label>
+            </div>
+            <div class="row">
+                <label class="zyFormLabel">品牌:</label>
+                <label class="zyFormLabel" id="pInfoBrand">三一</label>
+            </div>
+        </div>
+        <div class="zyBgFFFFFF zyMT20  zyPd10">
+            <div class="row">
+                <label class="zyFormLabel">颜色:</label>
 
-            <div class="col">
-                <span class="zySName">辅色2:</span>
-                <div class="zyColorItem">
-                    <span class="zyColorShow" id="pInfoAssistColor2" style="background: orange"></span>
-                    <!--<span class="zyColorName">橙色</span>-->
+                <div class="row">
+                    <span class="zySName">主色:</span>
+                    <div class="zyColorItem">
+                        <span class="zyColorShow" id="pInfoMainColor" style="background: orange"></span>
+                        <!--<span class="zyColorName">橙色</span>-->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <span class="zySName">辅色1:</span>
+                    <div class="zyColorItem">
+                        <span class="zyColorShow" id="pInfoAssistColor1" style="background: orange"></span>
+                        <!--<span class="zyColorName">橙色</span>-->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <span class="zySName">辅色2:</span>
+                    <div class="zyColorItem">
+                        <span class="zyColorShow" id="pInfoAssistColor2" style="background: orange"></span>
+                        <!--<span class="zyColorName">橙色</span>-->
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="zyBgFFFFFF zyMT20 zyPd10">
+            <div class="row">
+                <label class="zyFormLabel">纹理:</label>
+                <label class="zyFormLabel" id="pInfoTexture">亮光、亚光</label>
+            </div>
+            <div class="row">
+                <label class="zyFormLabel">风格：</label>
+                <label class="zyFormLabel" id="pInfoStyle">简单、干净</label>
+            </div>
+            <div class="row">
+                <label class="zyFormLabel">模型：</label>
+                <a class="zyFormLabel" id="pInfoModal" href="xxxx.fbx">xxxx.fbx</a>
+            </div>
+        </div>
     </div>
-        <div class="row">
-            <label class="zyFormLabel">风格：</label>
-            <label class="zyFormLabel" id="pInfoStyle">简单、干净</label>
-        </div>
-        <div class="row">
-            <label class="zyFormLabel">模型：</label>
-            <a class="zyFormLabel" id="pInfoModal" href="xxxx.fbx">xxxx.fbx</a>
-        </div>
 
+    <div class="col s6 zyBgFFFFFF" style="position: absolute;left:50%;top:10px;bottom:10px">
+        <img src="/images/upload.png" id="pImage" class="zyPCenter" style="width: 100%;height: auto">
+    </div>
+
+</div>
+<div class="row">
+    <div class="col s6 offset-s6">
+        <div class="switch" id="pChangeImage">
+            <label>
+
+                <input type="checkbox">
+                <span class="lever"></span>
+                特征线
+            </label>
+        </div>
+    </div>
 </div>

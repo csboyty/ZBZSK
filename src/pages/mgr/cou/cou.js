@@ -417,8 +417,7 @@ $(document).ready(function(){
         $("#pInfoType").text(submitData.marketType);
         $("#pInfoMarketDate").text(submitData.marketDate);
         $("#pInfoBrand").text(submitData.brand);
-        $("#pImageChanPin").attr("src",submitData.imageChanPin);
-        $("#pImageXianXin").attr("src",submitData.imageXianXin);
+        $("#pImage").attr("src",submitData.imageChanPin);
         $("#pInfoTexture").text(submitData.texture.join(','));
         $("#pInfoMainColor").css("background",submitData.color[0]);
         $("#pInfoAssistColor1").css("background",submitData.color[1]);
@@ -429,6 +428,13 @@ $(document).ready(function(){
         cou.setHtmlForInfoChildTable(submitData.componentInfo,$("#pInfoChildTable tbody"));
 
         $("#previewModal").modal("open");
+    });
+    $("#pChangeImage input[type='checkbox']").change(function(){
+        if($(this).prop("checked")){
+            $("#pImage").attr("src",cou.submitData.imageXianXin);
+        }else{
+            $("#pImage").attr("src",cou.submitData.imageChanPin);
+        }
     });
     $("#pInfoChildTableSearch").change(function(){
         cou.filterInfoChildTable($(this).val(),$("#pInfoChildTable tbody"));

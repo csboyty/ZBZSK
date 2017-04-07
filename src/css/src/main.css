@@ -34,11 +34,26 @@ ul{
 li{
     list-style: none;
 }
+.zyPCenter{
+    position: absolute;
+    top:50%;
+    left:0px;
+    transform:translateY(-50%);
+}
+.zyPd10{
+    padding: 10px;
+}
 .zyPd20{
     padding: 20px;
 }
+.zyMT20{
+    margin-top: 20px!important;
+}
 .zyBd2{
     border: 2px solid #ccc;
+}
+.zyBgFFFFFF{
+    background: #fff !important;
 }
 .zyHasLeftBorder{
     border-left:1px solid #ccc;
@@ -472,16 +487,16 @@ textarea.zyTextarea{
 }
 .zyModal{
     overflow-y: hidden;
-    height: 650px;
+    height: 90%;
     max-height: 100%;
     top:6% !important;
 }
 .zyModal .modal-content{
-    height: 550px;
+    height: calc(100% - 90px);
 }
 .zyModal .zyTabPanel{
     overflow:auto;
-    height:380px;/****这个数字不要轻易改动，不同的电脑，屏幕的高度不一样，取一个适中值***/
+    height:calc(100% - 40px);
 }
 .select-wrapper{
     width: 180px;
