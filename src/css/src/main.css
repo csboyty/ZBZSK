@@ -36,9 +36,7 @@ li{
 }
 .zyPCenter{
     position: absolute;
-    top:50%;
     left:0px;
-    transform:translateY(-50%);
 }
 .zyPd10{
     padding: 10px;
@@ -47,7 +45,7 @@ li{
     padding: 20px;
 }
 .zyMT20{
-    margin-top: 20px!important;
+    margin-top: 12px!important;
 }
 .zyBd2{
     border: 2px solid #ccc;
@@ -125,6 +123,7 @@ li{
 }
 .zyForm >.row{
     border-bottom: 1px #eee solid;
+    padding: 4px 0px 4px 0px;
 }
 .zyForm .zyFormLabel{
     text-align: left;
@@ -480,7 +479,7 @@ textarea.zyTextarea{
     height: 40px;
     line-height: 40px;
     color: #fff;
-    background: #ae4127;
+    background: #3e3a39;
 }
 .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat{
     float: none;
@@ -530,10 +529,20 @@ textarea.zyTextarea{
 }
 
 
+
+
 /*预览页面*/
+.modal .modal-footer{
+    border-top: 1px solid #ccc;
+}
 .row{
-    line-height: 50px;
+    line-height: 30px;
     margin-bottom: 0px;
+}
+.zyBgFFFFFF.zyMT20.zyPd10{
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
 }
 /*标签页*/
 .tabs .indicator{
