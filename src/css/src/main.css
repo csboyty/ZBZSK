@@ -529,9 +529,18 @@ textarea.zyTextarea{
 }
 
 
-
-
 /*预览页面*/
+.zyTextureItem{
+    display: inline-block;
+    margin-left: 4%;
+}
+.zytexture{
+    height: 50px;
+    width: 50px;
+    overflow:hidden;
+    text-align:center;
+    border-radius: 3px;
+}
 .modal .modal-footer{
     border-top: 1px solid #ccc;
 }
@@ -542,7 +551,22 @@ textarea.zyTextarea{
 .zyBgFFFFFF.zyMT20.zyPd10{
     display: inline-block;
     vertical-align: top;
-    width: 48%;
+    width: 100%;
+    position: relative;
+    min-height: 150px;
+}
+.zyPanelWrapper{
+    position:relative;
+}
+.zyColorPanel {
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    width:48%;
+}
+.zyTexturePanel{
+    margin-left: 50%;
 }
 /*标签页*/
 .tabs .indicator{
