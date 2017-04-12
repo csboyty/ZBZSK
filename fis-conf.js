@@ -8,6 +8,22 @@ fis.project.setProjectRoot('src');
         allInOne: true
     })
 });*/
+fis.match('/pages/(*)/(*)/*(.html)',{
+    isMod: true,
+    release: '/$2'
+})
+fis.match('/{pages,components}/(*)/*(.html)', {
+    isMod: true,
+    release: '/$1$2'
+});
+fis.match('/{pages,components}/**/*.css', {
+    isMod: true,
+    release: '/static/css/src/$0'
+});
+fis.match('/{pages,components}/**/*.js', {
+    isMod: true,
+    release: '/static/js/src/$0'
+});
 
 /**
  * 发布上线的版本
