@@ -8,13 +8,10 @@ fis.project.setProjectRoot('src');
         allInOne: true
     })
 });*/
-fis.match('/pages/(*)/(*)/*(.html)',{
+
+fis.match('/{pages,components}/(*)/(*).html', {
     isMod: true,
     release: '/$2'
-})
-fis.match('/{pages,components}/(*)/*(.html)', {
-    isMod: true,
-    release: '/$1$2'
 });
 fis.match('/{pages,components}/**/*.css', {
     isMod: true,
